@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>螃蟹餐饮 · 酒店餐饮收益与投资回报分析 · 需求确认表 V1.0</title>
+<style>
+  :root {
+    --bg: #f5f7fa;
+    --card: #ffffff;
+    --ink: #1f2937;
+    --muted: #6b7280;
+    --line: #e5e7eb;
+    --accent: #e11d48;
+    --accent-ink: #ffffff;
+    --ok: #16a34a;
+    --warn: #d97706;
+    --err: #dc2626;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+      "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 24px 16px 120px; }
+  header.page {
+    background: linear-gradient(135deg, #e11d48, #f97316);
+    color: #fff; border-radius: 16px; padding: 28px 24px; margin-bottom: 20px;
+  }
+  header.page h1 { margin: 0 0 6px; font-size: 22px; }
+  header.page p { margin: 4px 0; opacity: .94; font-size: 14px; }
+  .four { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 14px; }
+  .four span { background: rgba(255,255,255,.18); border-radius: 8px; padding: 6px 10px; font-size: 13px; }
+  section.card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 2px rgba(0,0,0,.03);
+  }
+  section.card > h2 {
+    font-size: 16px; margin: 0 0 16px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--line); color: #111827;
+  }
+  .q { margin-bottom: 22px; }
+  .q:last-child { margin-bottom: 0; }
+  .q .title { font-weight: 600; margin-bottom: 4px; }
+  .q .desc { color: var(--muted); font-size: 13px; margin-bottom: 8px; white-space: pre-line; }
+  .q .req { color: var(--err); font-weight: 400; font-size: 12px; margin-left: 6px; }
+  .q .hint { color: var(--warn); font-size: 12px; margin-left: 6px; }
+  .opts { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 6px; }
+  label.opt {
+    display: flex; align-items: flex-start; gap: 8px; padding: 8px 10px;
+    border: 1px solid var(--line); border-radius: 8px; cursor: pointer; font-size: 14px;
+    transition: border-color .15s, background .15s;
+  }
+  label.opt:hover { border-color: var(--accent); background: #fff1f2; }
+  label.opt input { margin-top: 3px; accent-color: var(--accent); }
+  label.opt.checked { border-color: var(--accent); background: #ffe4e6; }
+  input[type="text"], input[type="date"], textarea {
+    width: 100%; padding: 9px 11px; border: 1px solid var(--line);
+    border-radius: 8px; font-size: 14px; font-family: inherit; background: #fff;
+  }
+  input[type="text"]:focus, input[type="date"]:focus, textarea:focus {
+    outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px #fecdd3;
+  }
+  textarea { min-height: 80px; resize: vertical; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .info-grid .full { grid-column: 1 / -1; }
+  .info-grid label { font-size: 13px; color: var(--muted); display: block; margin-bottom: 4px; }
+  .bar {
+    position: fixed; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,.96);
+    border-top: 1px solid var(--line); padding: 12px 16px; display: flex; gap: 10px;
+    justify-content: center; flex-wrap: wrap; backdrop-filter: blur(6px); z-index: 20;
+  }
+  button {
+    border: 1px solid var(--line); background: #fff; color: var(--ink);
+    padding: 10px 16px; border-radius: 9px; font-size: 14px; cursor: pointer;
+    font-family: inherit; transition: background .15s, border-color .15s;
+  }
+  button:hover { background: #f3f4f6; }
+  button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  button.primary:hover { background: #be123c; }
+  #status { text-align: center; font-size: 13px; margin-top: 10px; min-height: 20px; }
+  #status.ok { color: var(--ok); }
+  #status.err { color: var(--err); }
+  footer.note { color: var(--muted); font-size: 12px; text-align: center; margin-top: 18px; }
+  @media (max-width: 560px) {
+    .info-grid { grid-template-columns: 1fr; }
+    .four { grid-template-columns: 1fr; }
+  }
+  .done { position: fixed; inset: 0; background: rgba(15,23,42,.72); display: flex; align-items: center; justify-content: center; z-index: 50; padding: 20px; }
+  .done[hidden] { display: none; }
+  .done-card { background: #fff; border-radius: 18px; padding: 36px 30px; max-width: 420px; width: 100%; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,.25); }
+  .done-icon { width: 64px; height: 64px; margin: 0 auto 14px; border-radius: 50%; background: #dcfce7; color: #16a34a; font-size: 34px; line-height: 64px; }
+  .done-card h2 { margin: 6px 0 8px; font-size: 22px; }
+  .done-card p { color: var(--muted); margin: 0 0 20px; }
+  .done-card button { padding: 10px 22px; }
+  @media print {
+    body { background: #fff; }
+    .bar, footer.note { display: none; }
+    section.card { box-shadow: none; break-inside: avoid; }
+    header.page { background: #e11d48 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="page">
+    <h1>螃蟹餐饮 · 酒店餐饮收益与投资回报分析</h1>
+    <p>需求确认表 V1.0 · 填写时间：约 12–15 分钟</p>
+    <p>本表用于确认数据采集范围、餐饮投资口径、投资回报指标、竞对与社会餐饮对标、报告与订阅模式。带 <span style="color:#fecaca">*</span> 为必填。</p>
+    <div class="four">
+      <span>① 平台定位与订阅模式</span>
+      <span>② 餐饮数据采集范围</span>
+      <span>③ 餐饮投资与回报分析</span>
+      <span>④ 竞对对标与报告交付</span>
+    </div>
+  </header>
+
+  <form id="form" novalidate></form>
+  <div id="status" role="status" aria-live="polite"></div>
+  <footer class="note">提交后会以 GitHub Issue 形式留档，可追溯提交人与时间。</footer>
+</div>
+
+<div id="done" class="done" style="display:none">
+  <div class="done-card">
+    <div class="done-icon">✓</div>
+    <h2>提交成功，谢谢！</h2>
+    <p>您的答卷已记录，可以关闭此页面了。</p>
+    <button type="button" id="btn-done">知道了</button>
+  </div>
+</div>
+
+<div class="bar">
+  <button type="button" class="primary" id="btn-submit">提交</button>
+</div>
+
+<script>
+/* ============================================================
+   仓库信息（创建 GitHub 仓库后在 Settings 改动此处）
+   ============================================================ */
+const GITHUB_REPO = "gordon310/pamfb";
+const ISSUE_LABEL = "business-feedback";
+
+/* 中转服务地址：留空则回退为「打开 GitHub 提交页」流程。
+   部署 Cloudflare Worker 后填入（见 relay/README.md）。 */
+const RELAY_URL = "";
+const FORM_KEY = "";
+
+/* ---------- 问卷数据模型（与 questionnaire.md 保持一致） ---------- */
+const SECTIONS = [
+  { title: "填写人信息", questions: [
+    { id: "submitter_name", type: "text", label: "填写人姓名", required: true, placeholder: "例：李四" },
+    { id: "hotel_name", type: "text", label: "酒店名称", required: true, placeholder: "例：XX 国际酒店" },
+    { id: "dept", type: "text", label: "所属部门 / 岗位", required: false, placeholder: "例：业主代表 / 总经理 / 餐饮总监" },
+    { id: "fill_date", type: "date", label: "填写日期", required: true },
+  ]},
+  { title: "一、平台定位与订阅模式", questions: [
+    { id: "q1", num: 1, type: "single", label: "以下哪种服务最符合贵酒店当前需求？", required: true,
+      options: ["0 成本搭建实时云数据分析平台","标准订阅报告（数据换报告）","诊断咨询报告（顾问深度解读）","以上都要","暂不确定"] },
+    { id: "q2", num: 2, type: "single", label: "是否接受「上传数据换取对标报告」的模式？", required: true,
+      options: ["接受","接受，但需要脱敏","需要先看样例报告再决定","不接受"] },
+    { id: "q3", num: 3, type: "single", label: "单店每年不超过 999 元的年费是否可接受？", required: true,
+      options: ["可接受，直接采购","可接受，但需内部审批","偏高","应由集团统一采购"] },
+    { id: "q4", num: 4, type: "multi", label: "最希望优先获得哪类报告？", required: true, options: [
+      "标准订阅报告","诊断咨询报告","投资回报分析报告","竞争对手分析","社会餐饮对标",
+      "市场趋势（月度 / 季度 / 年度）","其他" ]},
+  ]},
+  { title: "二、酒店与餐饮概况", questions: [
+    { id: "q5", num: 5, type: "single", label: "酒店所在城市等级 / 区位？", required: true,
+      options: ["一线城市","新一线城市","二线城市","三线及以下城市","景区 / 度假区"] },
+    { id: "q6", num: 6, type: "single", label: "酒店档次？", required: true,
+      options: ["奢华","高端","中高端","中端","经济型"] },
+    { id: "q7", num: 7, type: "single", label: "酒店客房数？", required: true,
+      options: ["150 间以下","150–299 间","300–499 间","500 间及以上"] },
+    { id: "q8", num: 8, type: "multi", label: "酒店餐饮包含哪些经营单元？", required: true, options: [
+      "全日餐厅","中餐厅","特色餐厅","大堂吧","宴会厅","会议设施","酒吧",
+      "送餐（Room Service）","行政酒廊","其他" ]},
+    { id: "q9", num: 9, type: "single", label: "酒店最近一次开业 / 大规模装修距今？", required: true,
+      options: ["3 年以内","3–5 年","5–10 年","10 年以上"] },
+  ]},
+  { title: "三、餐饮设施基础数据", questions: [
+    { id: "q10", num: 10, type: "single", label: "是否可按餐厅 / 宴会厅分别提供面积（含厨房、不含室外）？", required: true,
+      desc: "餐厅与宴会厅分开单列。",
+      options: ["可精确提供","可估算","无法提供"] },
+    { id: "q11", num: 11, type: "single", label: "是否可按餐厅 / 宴会厅分别提供座位数（不含室外）？", required: true,
+      options: ["可精确提供","可估算","无法提供"] },
+    { id: "q12", num: 12, type: "single", label: "各餐饮单元的经营业态如何归类？", required: true,
+      desc: "最终按螃蟹树聚标准分类（精致、大众、宴会等）。",
+      options: ["可自行按标准归类","需要平台协助归类","没有统一标准","暂不归类"] },
+    { id: "q13", num: 13, type: "multi", label: "餐饮设施基础数据建议采集哪些字段？", required: true, options: [
+      "面积（含厨房）","厨房面积","座位数","包间数量","室外座位数","经营业态","营业时段","桌数","其他" ]},
+  ]},
+  { title: "四、餐饮经营数据采集", questions: [
+    { id: "q14", num: 14, type: "multi", label: "可提供的收入数据颗粒度？", required: true, options: [
+      "分餐厅","分宴会厅","分餐段（早 / 中 / 晚 / 夜）","分宴会类型","分零点与套餐",
+      "分工作日 / 周末","分渠道（堂食 / 外卖 / 送餐）","其他" ]},
+    { id: "q15", num: 15, type: "multi", label: "可提供的接待人数数据颗粒度？", required: true, options: [
+      "分餐厅","分宴会厅","分餐段","分宴会类型","分会员 / 非会员","无法提供" ]},
+    { id: "q16", num: 16, type: "multi", label: "宴会业务如何细分？", required: true, options: [
+      "婚宴","MICE（会议 / 奖励 / 会展）","Social（社交宴请）","政府","其他" ]},
+    { id: "q17", num: 17, type: "single", label: "历史经营数据可回溯区间？", required: true,
+      options: ["1 年以内","1–3 年","3–5 年","5 年以上"] },
+    { id: "q18", num: 18, type: "single", label: "数据更新频次可达到？", required: true,
+      options: ["实时 / 每日","每周","每月","每季度","每年"] },
+  ]},
+  { title: "五、餐饮投资数据（新增）", questions: [
+    { id: "q19", num: 19, type: "single", label: "是否可提供每个餐厅 / 宴会厅的投资总额（不含租金）？", required: true,
+      desc: "用于结合餐饮营收数据，实现酒店餐饮投资回报分析。投资口径为不含租金。",
+      options: ["可按每个餐厅 / 宴会厅分别提供","只能提供餐饮整体投资总额","可估算","无法提供"] },
+    { id: "q20", num: 20, type: "multi", label: "投资总额通常包含哪些构成？", required: true, options: [
+      "装修 / 硬装","厨房设备","家私 / 软装","智能化 / 信息系统","开办费","其他" ]},
+    { id: "q21", num: 21, type: "single", label: "各餐饮单元的开业 / 最近改造年份能否提供？", required: true,
+      options: ["都能提供","部分能提供","不能提供"] },
+    { id: "q22", num: 22, type: "single", label: "投资数据希望如何录入？", required: true,
+      options: ["按每个餐厅 / 宴会厅逐个填总投资额（推荐，填报最简）","按投资构成分项填写","由顾问协助盘点","暂不录入"] },
+    { id: "q23", num: 23, type: "multi", label: "投资口径需要做哪些区分？", required: true, options: [
+      "不含租金","不含土地","不含酒店公区分摊","含厨房设备","含装修","其他" ]},
+  ]},
+  { title: "六、投资回报分析（新增）", questions: [
+    { id: "q24", num: 24, type: "multi", label: "最关注哪些投资回报指标？", required: true,
+      desc: "分析口径：总投资额 + 餐饮营收数据，不计算折旧。",
+      options: ["投资回收期","ROI（投资回报率）","年化回报率","单座投资额","坪效投资比","收入投资比","其他" ]},
+    { id: "q25", num: 25, type: "single", label: "投资回报分析是否需要扣除经营成本 / 费用？", required: true,
+      options: ["需要（酒店另行提供成本 / GOP 数据）","仅按收入口径即可","两者都要","暂不确定"] },
+    { id: "q26", num: 26, type: "multi", label: "投资回报分析的对比维度？", required: true, options: [
+      "按餐厅 / 宴会厅分别","按业态（全日餐 / 中餐 / 宴会 / 其他）","与行业平均对比",
+      "与同城竞对对比","与历史趋势对比" ]},
+    { id: "q27", num: 27, type: "single", label: "回报分析的基准周期？", required: true,
+      options: ["按年","按月","按季度","按营业期累计"] },
+    { id: "q28", num: 28, type: "single", label: "是否需要投资回报的敏感性分析（乐观 / 中性 / 悲观）？", required: true,
+      options: ["需要","可以有","不需要"] },
+    { id: "q29", num: 29, type: "multi", label: "投资回报结论的呈现形式？", required: true, options: [
+      "单店报告","集团汇总","在线看板","Excel 明细","顾问解读","其他" ]},
+  ]},
+  { title: "七、自我诊断与行业对标", questions: [
+    { id: "q30", num: 30, type: "multi", label: "希望与哪些范围对标？", required: true, options: [
+      "全国平均","所在城市平均","所在商圈","直接竞争对手","集团内部","其他" ]},
+    { id: "q31", num: 31, type: "multi", label: "最关注的对比指标？", required: true, options: [
+      "平均消费","客源人数","消费坪效","上座率","收入结构","餐饮与客房收入占比","宴会构成","其他" ]},
+    { id: "q32", num: 32, type: "single", label: "是否需要餐饮收入与客房收入占比分析（整体酒店）？", required: true,
+      options: ["需要","可选","不需要"] },
+    { id: "q33", num: 33, type: "single", label: "宴会厅是否需要独立分析？", required: true,
+      options: ["需要独立分析","并入餐饮整体","不需要"] },
+    { id: "q34", num: 34, type: "multi", label: "平均消费希望按什么维度对比？", required: true, options: [
+      "分餐厅","分宴会厅","分餐段","分零点 / 套餐","分客人类型","其他" ]},
+  ]},
+  { title: "八、竞争对手数据（酒店）", questions: [
+    { id: "q35", num: 35, type: "multi", label: "希望获取哪些酒店竞对数据？", required: true, options: [
+      "全日餐厅","中餐厅","特色餐厅","宴会厅","其他部门（大堂吧 / 酒吧 / 送餐）","不需要" ]},
+    { id: "q36", num: 36, type: "multi", label: "竞对营业额希望细分到？", required: true, options: [
+      "分餐段（早 / 中 / 晚 / 夜）","分零点 / 套餐","分工作日 / 周末",
+      "分宴会类型（婚宴 / MICE / 其他）","仅需总额" ]},
+    { id: "q37", num: 37, type: "multi", label: "竞对分析需要哪些指标？", required: true, options: [
+      "营业额 / 收入","平均消费","客源人数","消费坪效","上座率","实时趋势","其他" ]},
+    { id: "q38", num: 38, type: "single", label: "竞争对手范围如何确定？", required: true,
+      options: ["按地理位置同商圈","按同档次同业态","由平台推荐","酒店自行指定"] },
+    { id: "q39", num: 39, type: "single", label: "是否愿意提供自身数据用于与竞对公平对标？", required: true,
+      options: ["愿意","愿意，但需匿名","需先了解规则","不愿意"] },
+  ]},
+  { title: "九、社会餐饮数据", questions: [
+    { id: "q40", num: 40, type: "multi", label: "关注哪些社会餐饮类型？", required: true,
+      desc: "社会餐饮数据不在订阅福利范畴，作为付费顾问咨询报告的重要对比依据。",
+      options: ["精致餐饮","大众餐饮（含连锁）","独立餐厅","婚礼堂","自助餐","其他" ]},
+    { id: "q41", num: 41, type: "multi", label: "社会餐饮数据应涵盖哪些指标？", required: true, options: [
+      "营业额","平均消费","接待人数","翻台率","门店数","趋势","其他" ]},
+    { id: "q42", num: 42, type: "multi", label: "社会餐饮数据获取方式可接受？", required: true, options: [
+      "平台采集","酒店提供","第三方合作","公开数据推算","其他" ]},
+    { id: "q43", num: 43, type: "single", label: "社会餐饮对标是否作为付费顾问报告内容？", required: true,
+      options: ["是（顾问报告）","纳入订阅","两者都可","暂不需要"] },
+  ]},
+  { title: "十、数据上传、频次与安全", questions: [
+    { id: "q44", num: 44, type: "multi", label: "可接受的数据上传方式？", required: true, options: [
+      "Excel 模板","系统导出文件","API 对接","PMS / 餐饮系统直连","人工录入","其他" ]},
+    { id: "q45", num: 45, type: "single", label: "数据是否需要脱敏后上传？", required: true,
+      options: ["需要脱敏","可提供原始数据","视字段而定","暂不确定"] },
+    { id: "q46", num: 46, type: "single", label: "数据权限与可见范围？", required: true,
+      options: ["仅本店可见","集团可见","可参与匿名对标","不参与共享"] },
+    { id: "q47", num: 47, type: "single", label: "是否需要签署数据保密协议？", required: true,
+      options: ["需要","建议","不需要"] },
+  ]},
+  { title: "十一、报告与订阅交付", questions: [
+    { id: "q48", num: 48, type: "multi", label: "期望的报告形式？", required: true, options: [
+      "在线看板（实时）","PDF 报告","Excel 明细","顾问解读会议","微信 / 邮件推送","其他" ]},
+    { id: "q49", num: 49, type: "multi", label: "报告频率？", required: true, options: [
+      "实时","月度","季度","年度","事件触发（如竞对异动）","按需" ]},
+    { id: "q50", num: 50, type: "single", label: "订阅年费的付费方式？", required: true,
+      options: ["单店年费","集团打包","按报告付费","暂不确定"] },
+    { id: "q51", num: 51, type: "single", label: "是否需要投资回报的顾问解读？", required: true,
+      options: ["需要","可选","不需要"] },
+  ]},
+  { title: "十二、MVP 与优先级", questions: [
+    { id: "q52", num: 52, type: "multi", max: 5, label: "请选出第一阶段最重要的 5 项。", required: true, options: [
+      "餐饮设施基础数据采集","餐饮经营数据采集（分餐段）","餐饮投资数据录入",
+      "投资回报分析（回收期 / ROI / 坪效）","竞对数据对标","社会餐饮对标",
+      "餐饮与客房收入占比分析","宴会独立分析","数据上传与脱敏","在线看板（实时）",
+      "月度 / 季度 / 年度报告","顾问诊断报告","微信 / 邮件推送" ]},
+    { id: "q53", num: 53, type: "multi", max: 3, label: "最希望系统优先解决什么？", required: true, options: [
+      "餐饮数据分散、口径不一","不知道自身在全国 / 城市 / 商圈的位置","缺少竞对数据",
+      "缺少投资回报测算","宴会经营不透明","平均消费 / 坪效 / 上座率算不清",
+      "报告制作耗时","数据安全顾虑","暂时没有明显痛点" ]},
+    { id: "q54", num: 54, type: "single", label: "预期上线 / 试用时间？", required: true,
+      options: ["1 个月内","3 个月内","6 个月内","暂未确定"] },
+    { id: "q55", num: 55, type: "single", label: "是否愿意参与后续测试与评审？", required: true,
+      options: ["愿意","可以偶尔参与","暂时不参与"] },
+    { id: "q56", num: 56, type: "text", label: "如有特别重要的问题，可补充一句：", required: false, placeholder: "选填" },
+  ]},
+];
+
+const MAX_HINTS = { q52: "最多选 5 项", q53: "最多选 3 项" };
+
+/* ---------- 渲染 ---------- */
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+function buildQuestion(q) {
+  const hint = q.max ? '<span class="hint">' + MAX_HINTS[q.id] + "</span>" : "";
+  const req = q.required ? '<span class="req">*</span>' : "";
+  const title = '<div class="title">' + (q.num ? q.num + ". " : "") + esc(q.label) + req + hint + "</div>";
+  const desc = q.desc ? '<div class="desc">' + esc(q.desc) + "</div>" : "";
+
+  if (q.type === "text" || q.type === "date") {
+    return '<div class="q" data-qid="' + q.id + '">' + title +
+      '<input type="' + q.type + '" id="' + q.id + '" name="' + q.id + '"' +
+      (q.type === "text" ? ' placeholder="' + esc(q.placeholder || "") + '"' : "") + " /></div>";
+  }
+
+  const inputType = q.type === "multi" ? "checkbox" : "radio";
+  const opts = q.options.map((o, i) => {
+    const oid = q.id + "_" + i;
+    return '<label class="opt" for="' + oid + '">' +
+      '<input type="' + inputType + '" id="' + oid + '" name="' + q.id + '" value="' + esc(o) + '" />' +
+      "<span>" + esc(o) + "</span></label>";
+  }).join("");
+  return '<div class="q" data-qid="' + q.id + '">' + title + desc +
+    '<div class="opts">' + opts + "</div></div>";
+}
+
+function render() {
+  const form = document.getElementById("form");
+  form.innerHTML = SECTIONS.map(sec =>
+    '<section class="card"><h2>' + esc(sec.title) + "</h2>" +
+    sec.questions.map(buildQuestion).join("") + "</section>"
+  ).join("");
+
+  const d = new Date();
+  const today = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  const dateEl = document.getElementById("fill_date");
+  if (dateEl) dateEl.value = today;
+
+  form.addEventListener("change", onChange);
+}
+
+function onChange(e) {
+  const el = e.target;
+  if (el.type === "checkbox" || el.type === "radio") {
+    const wrap = el.closest(".q");
+    const qid = wrap.dataset.qid;
+    const max = (SECTIONS.flatMap(s => s.questions).find(q => q.id === qid) || {}).max;
+    if (el.type === "checkbox" && max) {
+      const checked = wrap.querySelectorAll('input[type="checkbox"]:checked');
+      if (checked.length > max) {
+        el.checked = false;
+        setStatus("「" + (MAX_HINTS[qid] || ("最多选 " + max + " 项")) + "」，已取消多出的选择。", "err");
+      }
+    }
+    wrap.querySelectorAll("label.opt").forEach(lbl => {
+      const inp = lbl.querySelector("input");
+      lbl.classList.toggle("checked", inp.checked);
+    });
+  }
+}
+
+/* ---------- 收集 ---------- */
+function collect() {
+  const answers = {};
+  SECTIONS.flatMap(s => s.questions).forEach(q => {
+    if (q.type === "multi") {
+      answers[q.id] = Array.from(document.querySelectorAll('input[name="' + q.id + '"]:checked')).map(i => i.value);
+    } else if (q.type === "single") {
+      const c = document.querySelector('input[name="' + q.id + '"]:checked');
+      answers[q.id] = c ? c.value : "";
+    } else {
+      const el = document.getElementById(q.id);
+      answers[q.id] = el ? el.value.trim() : "";
+    }
+  });
+  return answers;
+}
+
+function validate(a) {
+  const missing = [];
+  SECTIONS.flatMap(s => s.questions).forEach(q => {
+    if (!q.required) return;
+    const v = a[q.id];
+    const empty = Array.isArray(v) ? v.length === 0 : !v;
+    if (empty) missing.push((q.num ? q.num + ". " : "") + q.label);
+  });
+  return missing;
+}
+
+/* ---------- 输出（精简：只列已选答案，控制 URL 长度） ---------- */
+function toMarkdown(a) {
+  const lines = [];
+  lines.push("- 填写人姓名：" + (a.submitter_name || ""));
+  lines.push("- 酒店名称：" + (a.hotel_name || ""));
+  lines.push("- 所属部门 / 岗位：" + (a.dept || ""));
+  lines.push("- 填写日期：" + (a.fill_date || ""));
+  lines.push("");
+  SECTIONS.forEach(sec => {
+    sec.questions.filter(q => q.id.startsWith("q")).forEach(q => {
+      const v = a[q.id];
+      if (q.type === "multi") {
+        const sel = v || [];
+        if (!sel.length) return;
+        lines.push(q.num + ". " + sel.join("；"));
+      } else {
+        if (!v) return;
+        lines.push(q.num + ". " + v);
+      }
+    });
+  });
+  return lines.join("\n");
+}
+
+function issueTitle(a) {
+  return "[餐饮需求答卷] " + (a.hotel_name || "未署名酒店") + " / " + (a.submitter_name || "未署名") + " / " + (a.fill_date || "");
+}
+
+function issueUrl(a) {
+  const title = issueTitle(a);
+  const body = toMarkdown(a);
+  const base = "https://github.com/" + GITHUB_REPO + "/issues/new";
+  const params = "title=" + encodeURIComponent(title) +
+    "&body=" + encodeURIComponent(body) +
+    "&labels=" + encodeURIComponent(ISSUE_LABEL);
+  return base + "?" + params;
+}
+
+function setStatus(msg, kind) {
+  const el = document.getElementById("status");
+  el.textContent = msg;
+  el.className = kind || "";
+}
+
+/* ---------- 事件 ---------- */
+function onSubmit() {
+  const a = collect();
+  const missing = validate(a);
+  if (missing.length) {
+    setStatus("还有 " + missing.length + " 项必填未完成，例如：" + missing.slice(0, 3).join("；"), "err");
+    const first = document.querySelector('[data-qid="' + (missing[0].match(/^(\d+)\./) ? "q" + RegExp.$1 : "submitter_name") + '"]');
+    if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+  if (RELAY_URL) { submitViaRelay(a); return; }
+  const url = issueUrl(a);
+  if (url.length <= 7500) {
+    setStatus("已在新标签页打开 GitHub 提交页，请检查后点击 Submit new issue。", "ok");
+    window.open(url, "_blank", "noopener");
+    return;
+  }
+  const body = toMarkdown(a);
+  const done = () => {
+    setStatus("答案已复制。请在打开的 GitHub 页面填写标题（含酒店/姓名）并粘贴正文后提交。", "err");
+    window.open("https://github.com/" + GITHUB_REPO + "/issues/new", "_blank", "noopener");
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(body).then(done, () => fallbackCopy(body, done));
+  } else {
+    fallbackCopy(body, done);
+  }
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function verifyIssue(number) {
+  for (let i = 0; i < 3; i++) {
+    try {
+      const r = await fetch("https://api.github.com/repos/" + GITHUB_REPO + "/issues/" + number,
+        { headers: { Accept: "application/vnd.github+json" } });
+      if (r.ok) return true;
+      if (r.status !== 404) return false;
+    } catch (e) { return false; }
+    await sleep(800);
+  }
+  return false;
+}
+
+async function submitViaRelay(a) {
+  const btn = document.getElementById("btn-submit");
+  btn.disabled = true;
+  setStatus("正在提交…", "");
+  const headers = { "Content-Type": "application/json" };
+  if (FORM_KEY) headers["x-form-key"] = FORM_KEY;
+  try {
+    const r = await fetch(RELAY_URL, {
+      method: "POST",
+      headers: headers,
+      body: JSON.stringify({ title: issueTitle(a), body: toMarkdown(a) })
+    });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const d = await r.json();
+    if (!d || d.ok !== true) throw new Error("服务未确认创建");
+    let verified = d.verified;
+    if (verified !== true && d.number) verified = await verifyIssue(d.number);
+    if (!verified) throw new Error("记录校验未通过，请重试");
+    window.location.href = "thanks.html" + (d.number ? ("?no=" + d.number) : "");
+  } catch (e) {
+    btn.disabled = false;
+    setStatus("提交失败：" + e.message + "。请重试，或联系管理员。", "err");
+  }
+}
+
+function fallbackCopy(text, done) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); done(); }
+  catch (e) { setStatus("复制失败，请手动选择文本。", "err"); }
+  document.body.removeChild(ta);
+}
+
+render();
+document.getElementById("btn-submit").addEventListener("click", onSubmit);
+document.getElementById("btn-done").addEventListener("click", () => {
+  document.getElementById("done").style.display = "none";
+  try { window.close(); } catch (e) {}
+});
+</script>
+</body>
+</html>

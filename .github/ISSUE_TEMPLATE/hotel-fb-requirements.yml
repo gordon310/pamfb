@@ -1,0 +1,796 @@
+name: 餐饮需求确认表 V1.0
+description: 螃蟹餐饮 · 酒店餐饮收益与投资回报分析（约 12–15 分钟）
+title: "[餐饮需求答卷] "
+labels: ["business-feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢填写《螃蟹餐饮 · 酒店餐饮收益与投资回报分析 · 需求确认表 V1.0》。
+
+        本表用于确认：① 平台定位与订阅模式 ② 餐饮数据采集范围 ③ 餐饮投资与回报分析 ④ 竞对与社会餐饮对标 ⑤ 报告交付与数据安全。
+        投资口径为**不含租金**；投资回报分析**不计算折旧**。
+
+        > 提交后请勿删除本 Issue —— 它会被用作需求留档与开发文档回填依据。
+        > 酒店名称与姓名必填，用于识别提交方；同一人可多次提交（如修订版），每次都会单独留档，以最新一份为准。
+        > 共 56 题。标记「可多选」的题目可勾选多项；第 52 题请选 5 项，第 53 题最多选 3 项。
+
+  - type: input
+    id: submitter_name
+    attributes:
+      label: 填写人姓名
+      description: 必填。用于识别是谁提交。
+      placeholder: 例：李四
+    validations:
+      required: true
+
+  - type: input
+    id: hotel_name
+    attributes:
+      label: 酒店名称
+      description: 必填。用于识别所属酒店。
+      placeholder: 例：XX 国际酒店
+    validations:
+      required: true
+
+  - type: input
+    id: dept
+    attributes:
+      label: 所属部门 / 岗位
+      placeholder: 例：业主代表 / 总经理 / 餐饮总监
+    validations:
+      required: false
+
+  - type: input
+    id: fill_date
+    attributes:
+      label: 填写日期
+      placeholder: 例：2026-10-03
+    validations:
+      required: true
+
+  # ---------- 一、平台定位与订阅模式 ----------
+  - type: dropdown
+    id: q1
+    attributes:
+      label: "1. 以下哪种服务最符合贵酒店当前需求？（单选）"
+      options:
+        - 0 成本搭建实时云数据分析平台
+        - 标准订阅报告（数据换报告）
+        - 诊断咨询报告（顾问深度解读）
+        - 以上都要
+        - 暂不确定
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q2
+    attributes:
+      label: "2. 是否接受「上传数据换取对标报告」的模式？（单选）"
+      options:
+        - 接受
+        - 接受，但需要脱敏
+        - 需要先看样例报告再决定
+        - 不接受
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q3
+    attributes:
+      label: "3. 单店每年不超过 999 元的年费是否可接受？（单选）"
+      options:
+        - 可接受，直接采购
+        - 可接受，但需内部审批
+        - 偏高
+        - 应由集团统一采购
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q4
+    attributes:
+      label: "4. 最希望优先获得哪类报告？（可多选）"
+      options:
+        - label: 标准订阅报告
+        - label: 诊断咨询报告
+        - label: 投资回报分析报告
+        - label: 竞争对手分析
+        - label: 社会餐饮对标
+        - label: 市场趋势（月度 / 季度 / 年度）
+        - label: 其他
+    validations:
+      required: true
+
+  # ---------- 二、酒店与餐饮概况 ----------
+  - type: dropdown
+    id: q5
+    attributes:
+      label: "5. 酒店所在城市等级 / 区位？（单选）"
+      options:
+        - 一线城市
+        - 新一线城市
+        - 二线城市
+        - 三线及以下城市
+        - 景区 / 度假区
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q6
+    attributes:
+      label: "6. 酒店档次？（单选）"
+      options:
+        - 奢华
+        - 高端
+        - 中高端
+        - 中端
+        - 经济型
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q7
+    attributes:
+      label: "7. 酒店客房数？（单选）"
+      options:
+        - 150 间以下
+        - 150–299 间
+        - 300–499 间
+        - 500 间及以上
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q8
+    attributes:
+      label: "8. 酒店餐饮包含哪些经营单元？（可多选）"
+      options:
+        - label: 全日餐厅
+        - label: 中餐厅
+        - label: 特色餐厅
+        - label: 大堂吧
+        - label: 宴会厅
+        - label: 会议设施
+        - label: 酒吧
+        - label: 送餐（Room Service）
+        - label: 行政酒廊
+        - label: 其他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q9
+    attributes:
+      label: "9. 酒店最近一次开业 / 大规模装修距今？（单选）"
+      options:
+        - 3 年以内
+        - 3–5 年
+        - 5–10 年
+        - 10 年以上
+    validations:
+      required: true
+
+  # ---------- 三、餐饮设施基础数据 ----------
+  - type: dropdown
+    id: q10
+    attributes:
+      label: "10. 是否可按餐厅 / 宴会厅分别提供面积（含厨房、不含室外）？（单选）"
+      options:
+        - 可精确提供
+        - 可估算
+        - 无法提供
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q11
+    attributes:
+      label: "11. 是否可按餐厅 / 宴会厅分别提供座位数（不含室外）？（单选）"
+      options:
+        - 可精确提供
+        - 可估算
+        - 无法提供
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q12
+    attributes:
+      label: "12. 各餐饮单元的经营业态如何归类？（单选）"
+      options:
+        - 可自行按标准归类
+        - 需要平台协助归类
+        - 没有统一标准
+        - 暂不归类
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q13
+    attributes:
+      label: "13. 餐饮设施基础数据建议采集哪些字段？（可多选）"
+      options:
+        - label: 面积（含厨房）
+        - label: 厨房面积
+        - label: 座位数
+        - label: 包间数量
+        - label: 室外座位数
+        - label: 经营业态
+        - label: 营业时段
+        - label: 桌数
+        - label: 其他
+    validations:
+      required: true
+
+  # ---------- 四、餐饮经营数据采集 ----------
+  - type: checkboxes
+    id: q14
+    attributes:
+      label: "14. 可提供的收入数据颗粒度？（可多选）"
+      options:
+        - label: 分餐厅
+        - label: 分宴会厅
+        - label: 分餐段（早 / 中 / 晚 / 夜）
+        - label: 分宴会类型
+        - label: 分零点与套餐
+        - label: 分工作日 / 周末
+        - label: 分渠道（堂食 / 外卖 / 送餐）
+        - label: 其他
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q15
+    attributes:
+      label: "15. 可提供的接待人数数据颗粒度？（可多选）"
+      options:
+        - label: 分餐厅
+        - label: 分宴会厅
+        - label: 分餐段
+        - label: 分宴会类型
+        - label: 分会员 / 非会员
+        - label: 无法提供
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q16
+    attributes:
+      label: "16. 宴会业务如何细分？（可多选）"
+      options:
+        - label: 婚宴
+        - label: MICE（会议 / 奖励 / 会展）
+        - label: Social（社交宴请）
+        - label: 政府
+        - label: 其他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q17
+    attributes:
+      label: "17. 历史经营数据可回溯区间？（单选）"
+      options:
+        - 1 年以内
+        - 1–3 年
+        - 3–5 年
+        - 5 年以上
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q18
+    attributes:
+      label: "18. 数据更新频次可达到？（单选）"
+      options:
+        - 实时 / 每日
+        - 每周
+        - 每月
+        - 每季度
+        - 每年
+    validations:
+      required: true
+
+  # ---------- 五、餐饮投资数据 ----------
+  - type: dropdown
+    id: q19
+    attributes:
+      label: "19. 是否可提供每个餐厅 / 宴会厅的投资总额（不含租金）？（单选）"
+      options:
+        - 可按每个餐厅 / 宴会厅分别提供
+        - 只能提供餐饮整体投资总额
+        - 可估算
+        - 无法提供
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q20
+    attributes:
+      label: "20. 投资总额通常包含哪些构成？（可多选）"
+      options:
+        - label: 装修 / 硬装
+        - label: 厨房设备
+        - label: 家私 / 软装
+        - label: 智能化 / 信息系统
+        - label: 开办费
+        - label: 其他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q21
+    attributes:
+      label: "21. 各餐饮单元的开业 / 最近改造年份能否提供？（单选）"
+      options:
+        - 都能提供
+        - 部分能提供
+        - 不能提供
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q22
+    attributes:
+      label: "22. 投资数据希望如何录入？（单选）"
+      options:
+        - 按每个餐厅 / 宴会厅逐个填总投资额（推荐，填报最简）
+        - 按投资构成分项填写
+        - 由顾问协助盘点
+        - 暂不录入
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q23
+    attributes:
+      label: "23. 投资口径需要做哪些区分？（可多选）"
+      options:
+        - label: 不含租金
+        - label: 不含土地
+        - label: 不含酒店公区分摊
+        - label: 含厨房设备
+        - label: 含装修
+        - label: 其他
+    validations:
+      required: true
+
+  # ---------- 六、投资回报分析 ----------
+  - type: checkboxes
+    id: q24
+    attributes:
+      label: "24. 最关注哪些投资回报指标？（可多选）"
+      options:
+        - label: 投资回收期
+        - label: ROI（投资回报率）
+        - label: 年化回报率
+        - label: 单座投资额
+        - label: 坪效投资比
+        - label: 收入投资比
+        - label: 其他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q25
+    attributes:
+      label: "25. 投资回报分析是否需要扣除经营成本 / 费用？（单选）"
+      options:
+        - 需要（酒店另行提供成本 / GOP 数据）
+        - 仅按收入口径即可
+        - 两者都要
+        - 暂不确定
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q26
+    attributes:
+      label: "26. 投资回报分析的对比维度？（可多选）"
+      options:
+        - label: 按餐厅 / 宴会厅分别
+        - label: 按业态（全日餐 / 中餐 / 宴会 / 其他）
+        - label: 与行业平均对比
+        - label: 与同城竞对对比
+        - label: 与历史趋势对比
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q27
+    attributes:
+      label: "27. 回报分析的基准周期？（单选）"
+      options:
+        - 按年
+        - 按月
+        - 按季度
+        - 按营业期累计
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q28
+    attributes:
+      label: "28. 是否需要投资回报的敏感性分析（乐观 / 中性 / 悲观）？（单选）"
+      options:
+        - 需要
+        - 可以有
+        - 不需要
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q29
+    attributes:
+      label: "29. 投资回报结论的呈现形式？（可多选）"
+      options:
+        - label: 单店报告
+        - label: 集团汇总
+        - label: 在线看板
+        - label: Excel 明细
+        - label: 顾问解读
+        - label: 其他
+    validations:
+      required: true
+
+  # ---------- 七、自我诊断与行业对标 ----------
+  - type: checkboxes
+    id: q30
+    attributes:
+      label: "30. 希望与哪些范围对标？（可多选）"
+      options:
+        - label: 全国平均
+        - label: 所在城市平均
+        - label: 所在商圈
+        - label: 直接竞争对手
+        - label: 集团内部
+        - label: 其他
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q31
+    attributes:
+      label: "31. 最关注的对比指标？（可多选）"
+      options:
+        - label: 平均消费
+        - label: 客源人数
+        - label: 消费坪效
+        - label: 上座率
+        - label: 收入结构
+        - label: 餐饮与客房收入占比
+        - label: 宴会构成
+        - label: 其他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q32
+    attributes:
+      label: "32. 是否需要餐饮收入与客房收入占比分析（整体酒店）？（单选）"
+      options:
+        - 需要
+        - 可选
+        - 不需要
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q33
+    attributes:
+      label: "33. 宴会厅是否需要独立分析？（单选）"
+      options:
+        - 需要独立分析
+        - 并入餐饮整体
+        - 不需要
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q34
+    attributes:
+      label: "34. 平均消费希望按什么维度对比？（可多选）"
+      options:
+        - label: 分餐厅
+        - label: 分宴会厅
+        - label: 分餐段
+        - label: 分零点 / 套餐
+        - label: 分客人类型
+        - label: 其他
+    validations:
+      required: true
+
+  # ---------- 八、竞争对手数据（酒店） ----------
+  - type: checkboxes
+    id: q35
+    attributes:
+      label: "35. 希望获取哪些酒店竞对数据？（可多选）"
+      options:
+        - label: 全日餐厅
+        - label: 中餐厅
+        - label: 特色餐厅
+        - label: 宴会厅
+        - label: 其他部门（大堂吧 / 酒吧 / 送餐）
+        - label: 不需要
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q36
+    attributes:
+      label: "36. 竞对营业额希望细分到？（可多选）"
+      options:
+        - label: 分餐段（早 / 中 / 晚 / 夜）
+        - label: 分零点 / 套餐
+        - label: 分工作日 / 周末
+        - label: 分宴会类型（婚宴 / MICE / 其他）
+        - label: 仅需总额
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q37
+    attributes:
+      label: "37. 竞对分析需要哪些指标？（可多选）"
+      options:
+        - label: 营业额 / 收入
+        - label: 平均消费
+        - label: 客源人数
+        - label: 消费坪效
+        - label: 上座率
+        - label: 实时趋势
+        - label: 其他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q38
+    attributes:
+      label: "38. 竞争对手范围如何确定？（单选）"
+      options:
+        - 按地理位置同商圈
+        - 按同档次同业态
+        - 由平台推荐
+        - 酒店自行指定
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q39
+    attributes:
+      label: "39. 是否愿意提供自身数据用于与竞对公平对标？（单选）"
+      options:
+        - 愿意
+        - 愿意，但需匿名
+        - 需先了解规则
+        - 不愿意
+    validations:
+      required: true
+
+  # ---------- 九、社会餐饮数据 ----------
+  - type: checkboxes
+    id: q40
+    attributes:
+      label: "40. 关注哪些社会餐饮类型？（可多选）"
+      options:
+        - label: 精致餐饮
+        - label: 大众餐饮（含连锁）
+        - label: 独立餐厅
+        - label: 婚礼堂
+        - label: 自助餐
+        - label: 其他
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q41
+    attributes:
+      label: "41. 社会餐饮数据应涵盖哪些指标？（可多选）"
+      options:
+        - label: 营业额
+        - label: 平均消费
+        - label: 接待人数
+        - label: 翻台率
+        - label: 门店数
+        - label: 趋势
+        - label: 其他
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q42
+    attributes:
+      label: "42. 社会餐饮数据获取方式可接受？（可多选）"
+      options:
+        - label: 平台采集
+        - label: 酒店提供
+        - label: 第三方合作
+        - label: 公开数据推算
+        - label: 其他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q43
+    attributes:
+      label: "43. 社会餐饮对标是否作为付费顾问报告内容？（单选）"
+      options:
+        - 是（顾问报告）
+        - 纳入订阅
+        - 两者都可
+        - 暂不需要
+    validations:
+      required: true
+
+  # ---------- 十、数据上传、频次与安全 ----------
+  - type: checkboxes
+    id: q44
+    attributes:
+      label: "44. 可接受的数据上传方式？（可多选）"
+      options:
+        - label: Excel 模板
+        - label: 系统导出文件
+        - label: API 对接
+        - label: PMS / 餐饮系统直连
+        - label: 人工录入
+        - label: 其他
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q45
+    attributes:
+      label: "45. 数据是否需要脱敏后上传？（单选）"
+      options:
+        - 需要脱敏
+        - 可提供原始数据
+        - 视字段而定
+        - 暂不确定
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q46
+    attributes:
+      label: "46. 数据权限与可见范围？（单选）"
+      options:
+        - 仅本店可见
+        - 集团可见
+        - 可参与匿名对标
+        - 不参与共享
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q47
+    attributes:
+      label: "47. 是否需要签署数据保密协议？（单选）"
+      options:
+        - 需要
+        - 建议
+        - 不需要
+    validations:
+      required: true
+
+  # ---------- 十一、报告与订阅交付 ----------
+  - type: checkboxes
+    id: q48
+    attributes:
+      label: "48. 期望的报告形式？（可多选）"
+      options:
+        - label: 在线看板（实时）
+        - label: PDF 报告
+        - label: Excel 明细
+        - label: 顾问解读会议
+        - label: 微信 / 邮件推送
+        - label: 其他
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q49
+    attributes:
+      label: "49. 报告频率？（可多选）"
+      options:
+        - label: 实时
+        - label: 月度
+        - label: 季度
+        - label: 年度
+        - label: 事件触发（如竞对异动）
+        - label: 按需
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q50
+    attributes:
+      label: "50. 订阅年费的付费方式？（单选）"
+      options:
+        - 单店年费
+        - 集团打包
+        - 按报告付费
+        - 暂不确定
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q51
+    attributes:
+      label: "51. 是否需要投资回报的顾问解读？（单选）"
+      options:
+        - 需要
+        - 可选
+        - 不需要
+    validations:
+      required: true
+
+  # ---------- 十二、MVP 与优先级 ----------
+  - type: checkboxes
+    id: q52
+    attributes:
+      label: "52. 请选出第一阶段最重要的 5 项。（可多选，请选 5 项）"
+      options:
+        - label: 餐饮设施基础数据采集
+        - label: 餐饮经营数据采集（分餐段）
+        - label: 餐饮投资数据录入
+        - label: 投资回报分析（回收期 / ROI / 坪效）
+        - label: 竞对数据对标
+        - label: 社会餐饮对标
+        - label: 餐饮与客房收入占比分析
+        - label: 宴会独立分析
+        - label: 数据上传与脱敏
+        - label: 在线看板（实时）
+        - label: 月度 / 季度 / 年度报告
+        - label: 顾问诊断报告
+        - label: 微信 / 邮件推送
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: q53
+    attributes:
+      label: "53. 最希望系统优先解决什么？（可多选，最多 3 项）"
+      options:
+        - label: 餐饮数据分散、口径不一
+        - label: 不知道自身在全国 / 城市 / 商圈的位置
+        - label: 缺少竞对数据
+        - label: 缺少投资回报测算
+        - label: 宴会经营不透明
+        - label: 平均消费 / 坪效 / 上座率算不清
+        - label: 报告制作耗时
+        - label: 数据安全顾虑
+        - label: 暂时没有明显痛点
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q54
+    attributes:
+      label: "54. 预期上线 / 试用时间？（单选）"
+      options:
+        - 1 个月内
+        - 3 个月内
+        - 6 个月内
+        - 暂未确定
+    validations:
+      required: true
+
+  - type: dropdown
+    id: q55
+    attributes:
+      label: "55. 是否愿意参与后续测试与评审？（单选）"
+      options:
+        - 愿意
+        - 可以偶尔参与
+        - 暂时不参与
+    validations:
+      required: true
+
+  - type: textarea
+    id: q56
+    attributes:
+      label: "56. 如有特别重要的问题，可补充一句："
+      placeholder: 选填
+    validations:
+      required: false
