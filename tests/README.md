@@ -24,7 +24,7 @@ npm run test:all              # = logic + render
 ## 覆盖范围
 
 - **logic.test.mjs**
-  1. `index.html`：54 题、单按钮、Markdown 精简、提交 URL 合法、回退 URL 长度
+  1. `index.html`：52 题、单按钮、Markdown 精简、提交 URL 合法、回退 URL 长度
   2. `records.html`：Markdown↔解析往返、线上 Issue 可解析
   3. `export_issues.py`：能导出 CSV/Markdown 且表头正确
   4. `relay/worker.js`：正常提交/回查校验 verified/口令错误/缺字段/OPTIONS 预检/删除

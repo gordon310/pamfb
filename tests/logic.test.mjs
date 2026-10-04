@@ -19,19 +19,19 @@ const idx = read("index.html");
 const s1 = idx.slice(idx.indexOf("const GITHUB_REPO"), idx.indexOf("function setStatus"));
 const api = new Function(s1 + "\nreturn { SECTIONS, toMarkdown, issueUrl, GITHUB_REPO, RELAY_URL, FORM_KEY };")();
 const qids = api.SECTIONS.flatMap(s => s.questions).filter(q => q.id.startsWith("q"));
-ok(qids.length === 54, "题目 54 个 (实际 " + qids.length + ")");
+ok(qids.length === 52, "题目 52 个 (实际 " + qids.length + ")");
 ok(api.GITHUB_REPO === REPO, "GITHUB_REPO = " + api.GITHUB_REPO);
 ok(typeof api.RELAY_URL === "string", "RELAY_URL 存在 (值=\"" + api.RELAY_URL + "\")");
 
 const sample = { submitter_name: "测试用户", hotel_name: "测试酒店", dept: "餐饮部", fill_date: "2026-10-03",
-  q1: "以上都要", q4: ["标准订阅报告", "投资回报分析报告"], q14: ["分餐厅", "分餐段"], q54: "补一句" };
+  q1: "接受", q3: ["标准订阅报告", "投资回报分析报告"], q12: ["分餐厅", "分餐段"], q52: "补一句" };
 const md = api.toMarkdown(sample);
 ok(md.includes("- 填写人姓名：测试用户"), "Markdown 含填写人姓名");
 ok(md.includes("- 酒店名称：测试酒店"), "Markdown 含酒店名称");
 ok(md.includes("- 所属部门 / 岗位：餐饮部"), "Markdown 含部门");
 ok(md.includes("- 填写日期：2026-10-03"), "Markdown 含填写日期");
 ok(!md.includes("医生"), "Markdown 无医生字段");
-ok(md.includes("14. 分餐厅；分餐段"), "多选只列已选(精简式)");
+ok(md.includes("12. 分餐厅；分餐段"), "多选只列已选(精简式)");
 ok(!md.includes("- [ ]") && !md.includes("- [x]"), "多选未输出全部选项");
 ok(!md.includes("（未选择）") && !md.includes("（未回答）"), "跳过未作答");
 
@@ -60,9 +60,10 @@ ok(parsed.info.submitter_name === "测试用户", "往返：解析出填写人�
 ok(parsed.info.hotel_name === "测试酒店", "往返：解析出酒店名称");
 ok(parsed.info.dept === "餐饮部", "往返：解析出部门");
 ok(parsed.info.fill_date === "2026-10-03", "往返：解析出填写日期");
-ok(Array.isArray(parsed.answers.q14) && parsed.answers.q14.join("") === "分餐厅分餐段", "往返：q14");
-ok(parsed.answers.q1 === "以上都要", "往返：q1 单选");
-ok(parsed.answers.q54 === "补一句", "往返：q54 文本");
+ok(Array.isArray(parsed.answers.q12) && parsed.answers.q12.join("") === "分餐厅分餐段", "往返：q12");
+ok(parsed.answers.q1 === "接受", "往返：q1 单选");
+ok(parsed.answers.q3.join("") === "标准订阅报告投资回报分析报告", "往返：q3 多选");
+ok(parsed.answers.q52 === "补一句", "往返：q52 文本");
 
 try {
   const issues = await (await fetch("https://api.github.com/repos/" + REPO + "/issues?state=all&per_page=100")).json();

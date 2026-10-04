@@ -157,154 +157,150 @@ const SECTIONS = [
     { id: "fill_date", type: "date", label: "填写日期", required: true },
   ]},
   { title: "一、平台定位与订阅模式", questions: [
-    { id: "q1", num: 1, type: "single", label: "以下哪种服务最符合贵酒店当前需求？", required: true,
-      options: ["0 成本搭建实时云数据分析平台","标准订阅报告（数据换报告）","诊断咨询报告（顾问深度解读）","以上都要","暂不确定"] },
-    { id: "q2", num: 2, type: "single", label: "是否接受「上传数据换取对标报告」的模式？", required: true,
+    { id: "q1", num: 1, type: "single", label: "是否接受「上传数据换取对标报告」的模式？", required: true,
       options: ["接受","接受，但需要脱敏","需要先看样例报告再决定","不接受"] },
-    { id: "q3", num: 3, type: "single", label: "单店每年不超过 999 元的年费是否可接受？", required: true,
+    { id: "q2", num: 2, type: "single", label: "单店每年不超过 999 元的年费是否可接受？", required: true,
       options: ["可接受，直接采购","可接受，但需内部审批","偏高","应由集团统一采购"] },
-    { id: "q4", num: 4, type: "multi", label: "最希望优先获得哪类报告？", required: true, options: [
+    { id: "q3", num: 3, type: "multi", label: "最希望优先获得哪类报告？", required: true, options: [
       "标准订阅报告","诊断咨询报告","投资回报分析报告","竞争对手分析","社会餐饮对标",
       "市场趋势（月度 / 季度 / 年度）","其他" ]},
   ]},
   { title: "二、酒店与餐饮概况", questions: [
-    { id: "q5", num: 5, type: "single", label: "酒店所在城市等级 / 区位？", required: true,
+    { id: "q4", num: 4, type: "single", label: "酒店所在城市等级 / 区位？", required: true,
       options: ["一线城市","新一线城市","二线城市","三线及以下城市","景区 / 度假区"] },
-    { id: "q6", num: 6, type: "single", label: "酒店档次？", required: true,
+    { id: "q5", num: 5, type: "single", label: "酒店档次？", required: true,
       options: ["奢华","高端","中高端","中端","经济型"] },
-    { id: "q7", num: 7, type: "single", label: "酒店客房数？", required: true,
+    { id: "q6", num: 6, type: "single", label: "酒店客房数？", required: true,
       options: ["150 间以下","150–299 间","300–499 间","500 间及以上"] },
-    { id: "q8", num: 8, type: "multi", label: "酒店餐饮包含哪些经营单元？", required: true, options: [
+    { id: "q7", num: 7, type: "multi", label: "酒店餐饮包含哪些经营单元？", required: true, options: [
       "全日餐厅","中餐厅","特色餐厅","大堂吧","宴会厅","会议设施","酒吧",
       "送餐（Room Service）","行政酒廊","其他" ]},
-    { id: "q9", num: 9, type: "single", label: "酒店最近一次开业 / 大规模装修距今？", required: true,
+    { id: "q8", num: 8, type: "single", label: "酒店最近一次开业 / 大规模装修距今？", required: true,
       options: ["3 年以内","3–5 年","5–10 年","10 年以上"] },
   ]},
   { title: "三、餐饮设施基础数据", questions: [
-    { id: "q10", num: 10, type: "single", label: "是否可按餐厅 / 宴会厅分别提供面积（含厨房、不含室外）？", required: true,
+    { id: "q9", num: 9, type: "single", label: "是否可按餐厅 / 宴会厅分别提供面积（含厨房、不含室外）？", required: true,
       desc: "餐厅与宴会厅分开单列。",
       options: ["可精确提供","可估算","无法提供"] },
-    { id: "q11", num: 11, type: "single", label: "是否可按餐厅 / 宴会厅分别提供座位数（不含室外）？", required: true,
+    { id: "q10", num: 10, type: "single", label: "是否可按餐厅 / 宴会厅分别提供座位数（不含室外）？", required: true,
       options: ["可精确提供","可估算","无法提供"] },
-    { id: "q12", num: 12, type: "single", label: "各餐饮单元的经营业态如何归类？", required: true,
+    { id: "q11", num: 11, type: "single", label: "各餐饮单元的经营业态如何归类？", required: true,
       desc: "最终按螃蟹树聚标准分类（精致、大众、宴会等）。",
       options: ["可自行按标准归类","需要平台协助归类","没有统一标准","暂不归类"] },
-    { id: "q13", num: 13, type: "multi", label: "餐饮设施基础数据建议采集哪些字段？", required: true, options: [
-      "面积（含厨房）","厨房面积","座位数","包间数量","室外座位数","经营业态","营业时段","桌数","其他" ]},
   ]},
   { title: "四、餐饮经营数据采集", questions: [
-    { id: "q14", num: 14, type: "multi", label: "可提供的收入数据颗粒度？", required: true, options: [
+    { id: "q12", num: 12, type: "multi", label: "可提供的收入数据颗粒度？", required: true, options: [
       "分餐厅","分宴会厅","分餐段（早 / 中 / 晚 / 夜）","分宴会类型","分零点与套餐",
       "分工作日 / 周末","分渠道（堂食 / 外卖 / 送餐）","其他" ]},
-    { id: "q15", num: 15, type: "multi", label: "可提供的接待人数数据颗粒度？", required: true, options: [
+    { id: "q13", num: 13, type: "multi", label: "可提供的接待人数数据颗粒度？", required: true, options: [
       "分餐厅","分宴会厅","分餐段","分宴会类型","分会员 / 非会员","无法提供" ]},
-    { id: "q16", num: 16, type: "multi", label: "宴会业务如何细分？", required: true, options: [
+    { id: "q14", num: 14, type: "multi", label: "宴会业务如何细分？", required: true, options: [
       "婚宴","MICE（会议 / 奖励 / 会展）","Social（社交宴请）","政府","其他" ]},
-    { id: "q17", num: 17, type: "single", label: "历史经营数据可回溯区间？", required: true,
+    { id: "q15", num: 15, type: "single", label: "历史经营数据可回溯区间？", required: true,
       options: ["1 年以内","1–3 年","3–5 年","5 年以上"] },
-    { id: "q18", num: 18, type: "single", label: "数据更新频次可达到？", required: true,
+    { id: "q16", num: 16, type: "single", label: "数据更新频次可达到？", required: true,
       options: ["实时 / 每日","每周","每月","每季度","每年"] },
   ]},
   { title: "五、餐饮投资数据（新增）", questions: [
-    { id: "q19", num: 19, type: "single", label: "是否可提供每个餐厅 / 宴会厅的投资总额（不含租金）？", required: true,
+    { id: "q17", num: 17, type: "single", label: "是否可提供每个餐厅 / 宴会厅的投资总额（不含租金）？", required: true,
       desc: "用于结合餐饮营收数据，实现酒店餐饮投资回报分析。投资口径为不含租金。",
       options: ["可按每个餐厅 / 宴会厅分别提供","只能提供餐饮整体投资总额","可估算","无法提供"] },
-    { id: "q20", num: 20, type: "multi", label: "投资总额通常包含哪些构成？", required: true, options: [
+    { id: "q18", num: 18, type: "multi", label: "投资总额通常包含哪些构成？", required: true, options: [
       "装修 / 硬装","厨房设备","家私 / 软装","智能化 / 信息系统","开办费","其他" ]},
-    { id: "q21", num: 21, type: "single", label: "各餐饮单元的开业 / 最近改造年份能否提供？", required: true,
+    { id: "q19", num: 19, type: "single", label: "各餐饮单元的开业 / 最近改造年份能否提供？", required: true,
       options: ["都能提供","部分能提供","不能提供"] },
-    { id: "q22", num: 22, type: "single", label: "投资数据希望如何录入？", required: true,
+    { id: "q20", num: 20, type: "single", label: "投资数据希望如何录入？", required: true,
       options: ["按每个餐厅 / 宴会厅逐个填总投资额（推荐，填报最简）","按投资构成分项填写","由顾问协助盘点","暂不录入"] },
-    { id: "q23", num: 23, type: "multi", label: "投资口径需要做哪些区分？", required: true, options: [
+    { id: "q21", num: 21, type: "multi", label: "投资口径需要做哪些区分？", required: true, options: [
       "不含租金","不含土地","不含酒店公区分摊","含厨房设备","含装修","其他" ]},
   ]},
   { title: "六、投资回报分析（新增）", questions: [
-    { id: "q24", num: 24, type: "multi", label: "最关注哪些投资回报指标？", required: true,
+    { id: "q22", num: 22, type: "multi", label: "最关注哪些投资回报指标？", required: true,
       desc: "分析口径：总投资额 + 餐饮营收数据，不计算折旧。",
       options: ["投资回收期","ROI（投资回报率）","年化回报率","单座投资额","坪效投资比","收入投资比","其他" ]},
-    { id: "q25", num: 25, type: "single", label: "投资回报分析是否需要扣除经营成本 / 费用？", required: true,
+    { id: "q23", num: 23, type: "single", label: "投资回报分析是否需要扣除经营成本 / 费用？", required: true,
       options: ["需要（酒店另行提供成本 / GOP 数据）","仅按收入口径即可","两者都要","暂不确定"] },
-    { id: "q26", num: 26, type: "multi", label: "投资回报分析的对比维度？", required: true, options: [
+    { id: "q24", num: 24, type: "multi", label: "投资回报分析的对比维度？", required: true, options: [
       "按餐厅 / 宴会厅分别","按业态（全日餐 / 中餐 / 宴会 / 其他）","与行业平均对比",
       "与同城竞对对比","与历史趋势对比" ]},
-    { id: "q27", num: 27, type: "single", label: "回报分析的基准周期？", required: true,
+    { id: "q25", num: 25, type: "single", label: "回报分析的基准周期？", required: true,
       options: ["按年","按月","按季度","按营业期累计"] },
-    { id: "q28", num: 28, type: "single", label: "是否需要投资回报的敏感性分析（乐观 / 中性 / 悲观）？", required: true,
+    { id: "q26", num: 26, type: "single", label: "是否需要投资回报的敏感性分析（乐观 / 中性 / 悲观）？", required: true,
       options: ["需要","可以有","不需要"] },
-    { id: "q29", num: 29, type: "multi", label: "投资回报结论的呈现形式？", required: true, options: [
+    { id: "q27", num: 27, type: "multi", label: "投资回报结论的呈现形式？", required: true, options: [
       "单店报告","集团汇总","在线看板","Excel 明细","顾问解读","其他" ]},
   ]},
   { title: "七、自我诊断与行业对标", questions: [
-    { id: "q30", num: 30, type: "multi", label: "希望与哪些范围对标？", required: true, options: [
+    { id: "q28", num: 28, type: "multi", label: "希望与哪些范围对标？", required: true, options: [
       "全国平均","所在城市平均","所在商圈","直接竞争对手","集团内部","其他" ]},
-    { id: "q31", num: 31, type: "multi", label: "最关注的对比指标？", required: true, options: [
+    { id: "q29", num: 29, type: "multi", label: "最关注的对比指标？", required: true, options: [
       "平均消费","客源人数","消费坪效","上座率","收入结构","餐饮与客房收入占比","宴会构成","其他" ]},
-    { id: "q32", num: 32, type: "single", label: "是否需要餐饮收入与客房收入占比分析（整体酒店）？", required: true,
+    { id: "q30", num: 30, type: "single", label: "是否需要餐饮收入与客房收入占比分析（整体酒店）？", required: true,
       options: ["需要","可选","不需要"] },
-    { id: "q33", num: 33, type: "single", label: "宴会厅是否需要独立分析？", required: true,
+    { id: "q31", num: 31, type: "single", label: "宴会厅是否需要独立分析？", required: true,
       options: ["需要独立分析","并入餐饮整体","不需要"] },
-    { id: "q34", num: 34, type: "multi", label: "平均消费希望按什么维度对比？", required: true, options: [
+    { id: "q32", num: 32, type: "multi", label: "平均消费希望按什么维度对比？", required: true, options: [
       "分餐厅","分宴会厅","分餐段","分零点 / 套餐","分客人类型","其他" ]},
   ]},
   { title: "八、竞争对手数据（酒店）", questions: [
-    { id: "q35", num: 35, type: "multi", label: "希望获取哪些酒店竞对数据？", required: true, options: [
+    { id: "q33", num: 33, type: "multi", label: "希望获取哪些酒店竞对数据？", required: true, options: [
       "全日餐厅","中餐厅","特色餐厅","宴会厅","其他部门（大堂吧 / 酒吧 / 送餐）","不需要" ]},
-    { id: "q36", num: 36, type: "multi", label: "竞对营业额希望细分到？", required: true, options: [
+    { id: "q34", num: 34, type: "multi", label: "竞对营业额希望细分到？", required: true, options: [
       "分餐段（早 / 中 / 晚 / 夜）","分零点 / 套餐","分工作日 / 周末",
       "分宴会类型（婚宴 / MICE / 其他）","仅需总额" ]},
-    { id: "q37", num: 37, type: "multi", label: "竞对分析需要哪些指标？", required: true, options: [
+    { id: "q35", num: 35, type: "multi", label: "竞对分析需要哪些指标？", required: true, options: [
       "营业额 / 收入","平均消费","客源人数","消费坪效","上座率","实时趋势","其他" ]},
-    { id: "q38", num: 38, type: "single", label: "竞争对手范围如何确定？", required: true,
+    { id: "q36", num: 36, type: "single", label: "竞争对手范围如何确定？", required: true,
       options: ["按地理位置同商圈","按同档次同业态","由平台推荐","酒店自行指定"] },
-    { id: "q39", num: 39, type: "single", label: "是否愿意提供自身数据用于与竞对公平对标？", required: true,
+    { id: "q37", num: 37, type: "single", label: "是否愿意提供自身数据用于与竞对公平对标？", required: true,
       options: ["愿意","愿意，但需匿名","需先了解规则","不愿意"] },
   ]},
   { title: "九、社会餐饮数据", questions: [
-    { id: "q40", num: 40, type: "multi", label: "关注哪些社会餐饮类型？", required: true,
+    { id: "q38", num: 38, type: "multi", label: "关注哪些社会餐饮类型？", required: true,
       desc: "社会餐饮数据不在订阅福利范畴，作为付费顾问咨询报告的重要对比依据。",
       options: ["精致餐饮","大众餐饮（含连锁）","独立餐厅","婚礼堂","自助餐","其他" ]},
-    { id: "q41", num: 41, type: "multi", label: "社会餐饮数据应涵盖哪些指标？", required: true, options: [
+    { id: "q39", num: 39, type: "multi", label: "社会餐饮数据应涵盖哪些指标？", required: true, options: [
       "营业额","平均消费","接待人数","翻台率","门店数","趋势","其他" ]},
-    { id: "q42", num: 42, type: "multi", label: "社会餐饮数据获取方式可接受？", required: true, options: [
+    { id: "q40", num: 40, type: "multi", label: "社会餐饮数据获取方式可接受？", required: true, options: [
       "平台采集","酒店提供","第三方合作","公开数据推算","其他" ]},
-    { id: "q43", num: 43, type: "single", label: "社会餐饮对标是否作为付费顾问报告内容？", required: true,
+    { id: "q41", num: 41, type: "single", label: "社会餐饮对标是否作为付费顾问报告内容？", required: true,
       options: ["是（顾问报告）","纳入订阅","两者都可","暂不需要"] },
   ]},
   { title: "十、数据上传、频次与安全", questions: [
-    { id: "q44", num: 44, type: "multi", label: "可接受的数据上传方式？", required: true, options: [
+    { id: "q42", num: 42, type: "multi", label: "可接受的数据上传方式？", required: true, options: [
       "Excel 模板","系统导出文件","API 对接","PMS / 餐饮系统直连","人工录入","其他" ]},
-    { id: "q45", num: 45, type: "single", label: "数据是否需要脱敏后上传？", required: true,
+    { id: "q43", num: 43, type: "single", label: "数据是否需要脱敏后上传？", required: true,
       options: ["需要脱敏","可提供原始数据","视字段而定","暂不确定"] },
-    { id: "q46", num: 46, type: "single", label: "数据权限与可见范围？", required: true,
+    { id: "q44", num: 44, type: "single", label: "数据权限与可见范围？", required: true,
       options: ["仅本店可见","集团可见","可参与匿名对标","不参与共享"] },
-    { id: "q47", num: 47, type: "single", label: "是否需要签署数据保密协议？", required: true,
+    { id: "q45", num: 45, type: "single", label: "是否需要签署数据保密协议？", required: true,
       options: ["需要","建议","不需要"] },
   ]},
   { title: "十一、报告与订阅交付", questions: [
-    { id: "q48", num: 48, type: "multi", label: "期望的报告形式？", required: true, options: [
+    { id: "q46", num: 46, type: "multi", label: "期望的报告形式？", required: true, options: [
       "在线看板（实时）","PDF 报告","Excel 明细","顾问解读会议","微信 / 邮件推送","其他" ]},
-    { id: "q49", num: 49, type: "multi", label: "报告频率？", required: true, options: [
+    { id: "q47", num: 47, type: "multi", label: "报告频率？", required: true, options: [
       "实时","月度","季度","年度","事件触发（如竞对异动）","按需" ]},
-    { id: "q50", num: 50, type: "single", label: "订阅年费的付费方式？", required: true,
+    { id: "q48", num: 48, type: "single", label: "订阅年费的付费方式？", required: true,
       options: ["单店年费","集团打包","按报告付费","暂不确定"] },
-    { id: "q51", num: 51, type: "single", label: "是否需要投资回报的顾问解读？", required: true,
+    { id: "q49", num: 49, type: "single", label: "是否需要投资回报的顾问解读？", required: true,
       options: ["需要","可选","不需要"] },
   ]},
   { title: "十二、MVP 与优先级", questions: [
-    { id: "q52", num: 52, type: "multi", max: 5, label: "请选出第一阶段最重要的 5 项。", required: true, options: [
+    { id: "q50", num: 50, type: "multi", max: 5, label: "请选出第一阶段最重要的 5 项。", required: true, options: [
       "餐饮设施基础数据采集","餐饮经营数据采集（分餐段）","餐饮投资数据录入",
       "投资回报分析（回收期 / ROI / 坪效）","竞对数据对标","社会餐饮对标",
       "餐饮与客房收入占比分析","宴会独立分析","数据上传与脱敏","在线看板（实时）",
       "月度 / 季度 / 年度报告","顾问诊断报告","微信 / 邮件推送" ]},
-    { id: "q53", num: 53, type: "multi", max: 3, label: "最希望系统优先解决什么？", required: true, options: [
+    { id: "q51", num: 51, type: "multi", max: 3, label: "最希望系统优先解决什么？", required: true, options: [
       "餐饮数据分散、口径不一","不知道自身在全国 / 城市 / 商圈的位置","缺少竞对数据",
       "缺少投资回报测算","宴会经营不透明","平均消费 / 坪效 / 上座率算不清",
       "报告制作耗时","数据安全顾虑","暂时没有明显痛点" ]},
-    { id: "q54", num: 54, type: "text", label: "如有特别重要的问题，可补充一句：", required: false, placeholder: "选填" },
+    { id: "q52", num: 52, type: "text", label: "如有特别重要的问题，可补充一句：", required: false, placeholder: "选填" },
   ]},
 ];
 
-const MAX_HINTS = { q52: "最多选 5 项", q53: "最多选 3 项" };
+const MAX_HINTS = { q50: "最多选 5 项", q51: "最多选 3 项" };
 
 /* ---------- 渲染 ---------- */
 function esc(s) {

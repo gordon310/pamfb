@@ -19,11 +19,11 @@ pamfb/
 ├── index.html                              填写页（单按钮提交）
 ├── thanks.html                             提交成功后显示「感谢上传」
 ├── records.html                            答卷记录页（完成情况 / 明细 / CSV）
-├── questionnaire.md                        问卷唯一维护源（54 题）
+├── questionnaire.md                        问卷唯一维护源（52 题）
 ├── package.json                            测试脚本
 ├── .nojekyll                               GitHub Pages 原样发布
 ├── .github/ISSUE_TEMPLATE/
-│   ├── hotel-fb-requirements.yml           GitHub Issue 表单（54 题结构化）
+│   ├── hotel-fb-requirements.yml           GitHub Issue 表单（52 题结构化）
 │   └── config.yml                          新增 issue 引导
 ├── relay/                                  Cloudflare Worker 中转（可选，实现「提交→谢谢」）
 │   ├── worker.js
@@ -53,12 +53,12 @@ pamfb/
 
 ## 如何填写
 
-1. 打开 `https://gordon310.github.io/pamfb/`（共 54 题，单按钮提交）。
-2. 填写姓名、酒店名称、部门与日期，逐项作答，第 54 题可补充。
+1. 打开 `https://gordon310.github.io/pamfb/`（共 52 题，单按钮提交）。
+2. 填写姓名、酒店名称、部门与日期，逐项作答，第 52 题可补充。
 3. 点「提交」完成，可直接关闭浏览器。
 4. 提交后请勿删除，作为需求留档。
 
-> GitHub Issue 表单（`issues/new/choose`）无法强制"最多选 N 项"，第 52 / 53 题请在题干提示下自行控制；HTML 版会强制限制。
+> GitHub Issue 表单（`issues/new/choose`）无法强制"最多选 N 项"，第 50 / 51 题请在题干提示下自行控制；HTML 版会强制限制。
 
 ### 身份与多次提交
 
