@@ -48,8 +48,8 @@ pamfb/
 
 ### 提交方式
 
-- **当前**：填写页点「提交」→ 打开 GitHub 新 Issue 页（预填标题/正文/标签），登录 GitHub 点一次 Submit。
-- **可选（推荐）**：部署 `relay/` 的 Cloudflare Worker 后，把 `index.html`、`records.html` 的 `RELAY_URL` 填上，即变为「提交 → 感谢上传」，填写人全程不接触 GitHub。详见 `relay/README.md`。
+- **当前（已部署中转）**：填写页点「提交」→ Cloudflare Worker 中转写入 GitHub Issue → 页面显示「感谢上传」，填写人全程不接触 GitHub。中转地址 `https://pamfb-relay.zoubeacon.com/`，配置在 `index.html`（`RELAY_URL`、`FORM_KEY`）与 `records.html`（`RELAY_URL`）。
+- **回退**：把 `RELAY_URL` 留空即回到「打开 GitHub 新建 Issue 页」流程，需登录 GitHub 点一次 Submit。详见 `relay/README.md`。
 
 ## 如何填写
 

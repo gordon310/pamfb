@@ -2,7 +2,7 @@
 
 作用：酒店方在网页点「提交」后，数据由本服务代写进 GitHub Issue，网页只显示「谢谢」。填写人全程看不到 GitHub，密钥也不进网页。
 
-> 当前 `index.html` / `records.html` 的 `RELAY_URL` 为空，走「打开 GitHub 提交页」的回退流程。部署本 Worker 后，把地址填入两个页面的 `RELAY_URL` 即切换为「提交 → 感谢上传」。
+> 本项目 Worker 已部署（`https://pamfb-relay.zoubeacon.com/`），`FORM_KEY` / `ADMIN_KEY` / `GITHUB_TOKEN` 均已设置，`index.html` / `records.html` 的 `RELAY_URL` 也已填好，当前即为「提交 → 感谢上传」模式。把 `RELAY_URL` 留空可回退为「打开 GitHub 提交页」。
 
 ## 一、准备 GitHub token
 
@@ -11,7 +11,7 @@
 3. Permissions → Repository permissions → **Issues: Read and write**。
 4. 生成后复制 token（形如 `github_pat_...`），只保存一次。
 
-## 二、部署 Worker
+## 二、部署 Worker（本项目已部署）
 
 在 `relay/` 目录执行：
 
@@ -19,19 +19,19 @@
 npx wrangler login                 # 浏览器登录 Cloudflare 账号（免费）
 npx wrangler deploy                # 部署
 npx wrangler secret put GITHUB_TOKEN   # 粘贴上一步的 token
-npx wrangler secret put FORM_KEY       # 提交口令（可选）
+npx wrangler secret put FORM_KEY       # 提交口令（已设置，见 index.html）
 npx wrangler secret put ADMIN_KEY      # 删除记录的管理员口令（不入仓库）
 ```
 
-**部署后地址**：`https://pamfb-relay.zoubeacon.com/`
+**当前线上地址**：`https://pamfb-relay.zoubeacon.com/`
 
 > ⚠️ `workers.dev` 在大陆被 DNS 污染 + SNI 阻断，直连不可用；因此路由绑定到自有域名
 > `zoubeacon.com`（已托管在 Cloudflare）。换子域名改 `wrangler.toml` 的 `[[routes]]` 后重新 deploy。
 > `wrangler.toml` 未写 `workers_dev`，故 workers.dev 入口已关闭。
 
-## 三、让网页使用它
+## 三、让网页使用它（已配置）
 
-把 `index.html` 与 `records.html` 中的常量填好：
+`index.html` 与 `records.html` 已填好：
 
 ```js
 // index.html
