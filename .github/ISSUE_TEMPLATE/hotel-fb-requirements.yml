@@ -13,7 +13,7 @@ body:
 
         > 提交后请勿删除本 Issue —— 它会被用作需求留档与开发文档回填依据。
         > 酒店名称与姓名必填，用于识别提交方；同一人可多次提交（如修订版），每次都会单独留档，以最新一份为准。
-        > 共 56 题。标记「可多选」的题目可勾选多项；第 52 题请选 5 项，第 53 题最多选 3 项。
+        > 共 54 题。标记「可多选」的题目可勾选多项；第 52 题请选 5 项，第 53 题最多选 3 项。
 
   - type: input
     id: submitter_name
@@ -764,33 +764,10 @@ body:
     validations:
       required: true
 
-  - type: dropdown
+  - type: textarea
     id: q54
     attributes:
-      label: "54. 预期上线 / 试用时间？（单选）"
-      options:
-        - 1 个月内
-        - 3 个月内
-        - 6 个月内
-        - 暂未确定
-    validations:
-      required: true
-
-  - type: dropdown
-    id: q55
-    attributes:
-      label: "55. 是否愿意参与后续测试与评审？（单选）"
-      options:
-        - 愿意
-        - 可以偶尔参与
-        - 暂时不参与
-    validations:
-      required: true
-
-  - type: textarea
-    id: q56
-    attributes:
-      label: "56. 如有特别重要的问题，可补充一句："
+      label: "54. 如有特别重要的问题，可补充一句："
       placeholder: 选填
     validations:
       required: false

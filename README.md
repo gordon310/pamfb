@@ -1,6 +1,6 @@
 # 螃蟹餐饮 · 酒店餐饮收益与投资回报分析
 
-用于收集酒店业主 / 总经理对「酒店餐饮收益分析与投资回报」平台的需求确认，并把结论沉淀为开发文档。
+用于收集**餐饮行业专家**对「酒店餐饮收益分析与投资回报」平台的需求确认，并把结论沉淀为开发文档。
 
 - 在线填写表单：`index.html`（也可直接打开本地文件）
 - GitHub 在线提交：仓库 `Issues` → 选择「餐饮需求确认表 V1.0」
@@ -19,11 +19,11 @@ pamfb/
 ├── index.html                              填写页（单按钮提交）
 ├── thanks.html                             提交成功后显示「感谢上传」
 ├── records.html                            答卷记录页（完成情况 / 明细 / CSV）
-├── questionnaire.md                        问卷唯一维护源（56 题）
+├── questionnaire.md                        问卷唯一维护源（54 题）
 ├── package.json                            测试脚本
 ├── .nojekyll                               GitHub Pages 原样发布
 ├── .github/ISSUE_TEMPLATE/
-│   ├── hotel-fb-requirements.yml           GitHub Issue 表单（56 题结构化）
+│   ├── hotel-fb-requirements.yml           GitHub Issue 表单（54 题结构化）
 │   └── config.yml                          新增 issue 引导
 ├── relay/                                  Cloudflare Worker 中转（可选，实现「提交→谢谢」）
 │   ├── worker.js
@@ -53,8 +53,8 @@ pamfb/
 
 ## 如何填写
 
-1. 打开 `https://gordon310.github.io/pamfb/`（共 56 题，单按钮提交）。
-2. 填写姓名、酒店名称、部门与日期，逐项作答，第 56 题可补充。
+1. 打开 `https://gordon310.github.io/pamfb/`（共 54 题，单按钮提交）。
+2. 填写姓名、酒店名称、部门与日期，逐项作答，第 54 题可补充。
 3. 点「提交」完成，可直接关闭浏览器。
 4. 提交后请勿删除，作为需求留档。
 

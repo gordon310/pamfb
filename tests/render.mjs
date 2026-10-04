@@ -40,7 +40,7 @@ function dump(url, tag) {
 console.log("[填] " + BASE + "/");
 const index = await dump(BASE + "/", "index");
 const qids = new Set([...index.matchAll(/data-qid="(q\d+)"/g)].map(m => m[1]));
-ok(qids.size === 56, "渲染出 56 个题号 (实际 " + qids.size + ")");
+ok(qids.size === 54, "渲染出 54 个题号 (实际 " + qids.size + ")");
 const btns = [...index.matchAll(/id="(btn-[a-z]+)"/g)].map(m => m[1]);
 ok(btns.includes("btn-submit") && !btns.some(b => b !== "btn-submit" && b !== "btn-done"),
    "只有提交按钮: " + [...new Set(btns)].join(", "));

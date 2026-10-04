@@ -153,7 +153,7 @@ const SECTIONS = [
   { title: "填写人信息", questions: [
     { id: "submitter_name", type: "text", label: "填写人姓名", required: true, placeholder: "例：李四" },
     { id: "hotel_name", type: "text", label: "酒店名称", required: true, placeholder: "例：XX 国际酒店" },
-    { id: "dept", type: "text", label: "所属部门 / 岗位", required: false, placeholder: "例：业主代表 / 总经理 / 餐饮总监" },
+    { id: "dept", type: "text", label: "所属部门 / 岗位", required: false, placeholder: "例：餐饮专家 / 餐饮总监 / 运营总监" },
     { id: "fill_date", type: "date", label: "填写日期", required: true },
   ]},
   { title: "一、平台定位与订阅模式", questions: [
@@ -300,11 +300,7 @@ const SECTIONS = [
       "餐饮数据分散、口径不一","不知道自身在全国 / 城市 / 商圈的位置","缺少竞对数据",
       "缺少投资回报测算","宴会经营不透明","平均消费 / 坪效 / 上座率算不清",
       "报告制作耗时","数据安全顾虑","暂时没有明显痛点" ]},
-    { id: "q54", num: 54, type: "single", label: "预期上线 / 试用时间？", required: true,
-      options: ["1 个月内","3 个月内","6 个月内","暂未确定"] },
-    { id: "q55", num: 55, type: "single", label: "是否愿意参与后续测试与评审？", required: true,
-      options: ["愿意","可以偶尔参与","暂时不参与"] },
-    { id: "q56", num: 56, type: "text", label: "如有特别重要的问题，可补充一句：", required: false, placeholder: "选填" },
+    { id: "q54", num: 54, type: "text", label: "如有特别重要的问题，可补充一句：", required: false, placeholder: "选填" },
   ]},
 ];
 

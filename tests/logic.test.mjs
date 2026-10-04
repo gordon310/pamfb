@@ -19,12 +19,12 @@ const idx = read("index.html");
 const s1 = idx.slice(idx.indexOf("const GITHUB_REPO"), idx.indexOf("function setStatus"));
 const api = new Function(s1 + "\nreturn { SECTIONS, toMarkdown, issueUrl, GITHUB_REPO, RELAY_URL, FORM_KEY };")();
 const qids = api.SECTIONS.flatMap(s => s.questions).filter(q => q.id.startsWith("q"));
-ok(qids.length === 56, "题目 56 个 (实际 " + qids.length + ")");
+ok(qids.length === 54, "题目 54 个 (实际 " + qids.length + ")");
 ok(api.GITHUB_REPO === REPO, "GITHUB_REPO = " + api.GITHUB_REPO);
 ok(typeof api.RELAY_URL === "string", "RELAY_URL 存在 (值=\"" + api.RELAY_URL + "\")");
 
 const sample = { submitter_name: "测试用户", hotel_name: "测试酒店", dept: "餐饮部", fill_date: "2026-10-03",
-  q1: "以上都要", q4: ["标准订阅报告", "投资回报分析报告"], q14: ["分餐厅", "分餐段"], q56: "补一句" };
+  q1: "以上都要", q4: ["标准订阅报告", "投资回报分析报告"], q14: ["分餐厅", "分餐段"], q54: "补一句" };
 const md = api.toMarkdown(sample);
 ok(md.includes("- 填写人姓名：测试用户"), "Markdown 含填写人姓名");
 ok(md.includes("- 酒店名称：测试酒店"), "Markdown 含酒店名称");
@@ -62,7 +62,7 @@ ok(parsed.info.dept === "餐饮部", "往返：解析出部门");
 ok(parsed.info.fill_date === "2026-10-03", "往返：解析出填写日期");
 ok(Array.isArray(parsed.answers.q14) && parsed.answers.q14.join("") === "分餐厅分餐段", "往返：q14");
 ok(parsed.answers.q1 === "以上都要", "往返：q1 单选");
-ok(parsed.answers.q56 === "补一句", "往返：q56 文本");
+ok(parsed.answers.q54 === "补一句", "往返：q54 文本");
 
 try {
   const issues = await (await fetch("https://api.github.com/repos/" + REPO + "/issues?state=all&per_page=100")).json();
