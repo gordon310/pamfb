@@ -620,15 +620,15 @@ body:
     validations:
       required: true
 
-  - type: dropdown
+  - type: checkboxes
     id: q44
     attributes:
-      label: "44. 数据权限与可见范围？（单选）"
+      label: "44. 数据权限与可见范围？（可多选）"
       options:
-        - 仅本店可见
-        - 集团可见
-        - 可参与匿名对标
-        - 不参与共享
+        - label: 仅本店可见
+        - label: 集团可见
+        - label: 可参与匿名对标
+        - label: 不参与共享
     validations:
       required: true
 
