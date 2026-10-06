@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8"/>
+<title>螃蟹餐饮 · 业务需求汇总确认 V1.0</title>
+<style>
+  @page { size: A4; margin: 15mm 13mm; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+         color:#1f2937; line-height:1.6; font-size:12px; margin:0; }
+  h1 { font-size:22px; color:#0f172a; margin:0 0 4px; padding-bottom:8px; border-bottom:3px solid #e11d48; }
+  h2 { font-size:15px; color:#9f1239; border-left:4px solid #e11d48; padding-left:8px; margin:22px 0 10px; }
+  h3 { font-size:13px; margin:14px 0 6px; }
+  p { margin:6px 0; }
+  hr { border:none; border-top:1px solid #e5e7eb; margin:16px 0; }
+  blockquote { background:#fff1f2; border-left:3px solid #fb7185; margin:8px 0; padding:8px 12px; color:#7f1d1d; font-size:11.5px; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 14px; }
+  th,td { border:1px solid #e5e7eb; padding:5px 7px; text-align:left; vertical-align:top; font-size:11px; }
+  th { background:#f8fafc; color:#475569; font-weight:600; white-space:nowrap; }
+  tr:nth-child(even) td { background:#fcfcfd; }
+  ol,ul { margin:6px 0 12px; padding-left:20px; }
+  li { margin:3px 0; }
+  strong { color:#0f172a; }
+  .head { border-bottom:3px solid #e11d48; padding-bottom:10px; margin-bottom:6px; }
+  .sub { color:#e11d48; font-weight:600; font-size:13px; }
+  .meta { color:#6b7280; font-size:11px; }
+</style></head>
+<body>
+<h1>螃蟹餐饮 · 酒店餐饮收益与投资回报分析</h1>
+<h2>业务需求汇总确认（V1.0）</h2>
+<p><strong>编制日期：2026-10-06</strong>  </p>
+<p><strong>数据来源：需求确认表回收答卷 3 份</strong>（GitHub Issues #2 / #3 / #4）</p>
+<hr/>
+<h2>一、调研概况</h2>
+<p>本次共回收 <strong>3 份</strong>餐饮行业专家/机构答卷，覆盖国际品牌酒店、酒店管理公司及餐饮管理咨询机构：</p>
+<table><thead><tr><th>序号</th><th>机构 / 酒店</th><th>填写人</th><th>岗位</th><th>填写日期</th></tr></thead><tbody><tr><td>1</td><td>杭州滨江福朋喜来登酒店</td><td>夏国跃</td><td>董事长</td><td>2026-10-04</td></tr><tr><td>2</td><td>茯特晓拾酒店餐饮管理咨询</td><td>何强</td><td>餐饮</td><td>2026-10-04</td></tr><tr><td>3</td><td>万达酒管</td><td>章生</td><td>运营总监</td><td>2026-10-05</td></tr></tbody></table>
+<p><strong>样本特征</strong>：城市为一线 / 新一线；档次为高端 / 中高端；客房 150–499 间；均设全日餐厅、中餐厅、宴会厅；数据更新频次均可达<strong>每月</strong>。</p>
+<blockquote>说明：问卷在回收期间做过题号精简（删去「服务形态」「设施字段」等题）。本汇总已按题目实际含义<strong>归一化</strong>；个别专家对已删题的作答仅作参考（例：何强「服务形态」选「以上都要」）。</blockquote>
+<hr/>
+<h2>二、总体共识（3 位专家一致或多数一致）</h2>
+<table><thead><tr><th>主题</th><th>共识</th><th>说明</th></tr></thead><tbody><tr><td>模式</td><td>接受「上传数据换取对标报告」</td><td>3/3 接受，且 <strong>3/3 要求脱敏</strong></td></tr><tr><td>数据安全</td><td>数据需脱敏上传；签署保密协议</td><td>3/3 需脱敏；2/3 认为「需要」签署、1 位「建议」</td></tr><tr><td>宴会分析</td><td>宴会厅需要独立分析</td><td>3/3 需要独立分析</td></tr><tr><td>采集颗粒度</td><td>收入/人数按<strong>分餐厅、分餐段</strong>采集</td><td>3/3 收入含分餐厅；分餐段为共同项</td></tr><tr><td>投资口径</td><td>投资总额<strong>不含租金、不含土地</strong></td><td>3/3 一致</td></tr><tr><td>回报指标</td><td>关注 ROI 及收益类指标</td><td>ROI 3/3；年化回报率、坪效投资比各 2/3</td></tr><tr><td>分析基准</td><td>投资回报按<strong>年</strong>测算</td><td>3/3 按年</td></tr><tr><td>对标范围</td><td>关注城市 / 商圈 / 直接竞对</td><td>3/3 含城市平均；多数含商圈/竞对</td></tr><tr><td>对标指标</td><td>平均消费、客源人数、坪效、上座率</td><td>3/3 全部关注</td></tr><tr><td>竞对数据</td><td>需要全日餐厅、中餐厅、宴会厅竞对数据</td><td>3/3 一致</td></tr><tr><td>报告形式</td><td>在线看板 + PDF 报告</td><td>3/3 一致；多数另需 Excel / 顾问解读</td></tr><tr><td>核心痛点</td><td>缺少竞对数据</td><td>3/3 一致；2/3 提到数据分散、不知自身位置</td></tr></tbody></table>
+<hr/>
+<h2>一、平台定位与订阅模式</h2>
+<table><thead><tr><th>题目</th><th>夏国跃</th><th>何强</th><th>章生</th></tr></thead><tbody><tr><td>1. 是否接受「上传数据换取对标报告」的模式？</td><td>接受，但需要脱敏</td><td>接受，但需要脱敏</td><td>接受，但需要脱敏</td></tr><tr><td>2. 单店每年不超过 999 元的年费是否可接受？</td><td>可接受，直接采购</td><td>应由集团统一采购</td><td>可接受，但需内部审批</td></tr><tr><td>3. 最希望优先获得哪类报告？</td><td>标准订阅报告；诊断咨询报告；投资回报分析报告；竞争对手分析；社会餐饮对标</td><td>标准订阅报告；诊断咨询报告；竞争对手分析；社会餐饮对标；市场趋势（月度 / 季度 / 年度）</td><td>诊断咨询报告；竞争对手分析；社会餐饮对标；市场趋势（月度 / 季度 / 年度）</td></tr></tbody></table>
+<h2>二、餐饮数据采集范围（设施 + 经营）</h2>
+<table><thead><tr><th>题目</th><th>夏国跃</th><th>何强</th><th>章生</th></tr></thead><tbody><tr><td>9. 是否可按餐厅 / 宴会厅分别提供面积（含厨房、不含室外）？</td><td>可精确提供</td><td>可估算</td><td>可精确提供</td></tr><tr><td>10. 是否可按餐厅 / 宴会厅分别提供座位数（不含室外）？</td><td>可精确提供</td><td>可精确提供</td><td>可精确提供</td></tr><tr><td>11. 各餐饮单元的经营业态如何归类？</td><td>需要平台协助归类</td><td>需要平台协助归类</td><td>可自行按标准归类</td></tr><tr><td>12. 可提供的收入数据颗粒度？</td><td>分餐厅；分宴会厅；分餐段（早 / 中 / 晚 / 夜）；分宴会类型；分零点与套餐；分工作日 / 周末；分渠道（堂食 / 外卖 / 送餐）</td><td>分餐厅；分宴会厅；分餐段（早 / 中 / 晚 / 夜）；分宴会类型</td><td>分餐厅；分餐段（早 / 中 / 晚 / 夜）</td></tr><tr><td>13. 可提供的接待人数数据颗粒度？</td><td>分餐厅；分餐段；分宴会类型</td><td>分餐厅；分宴会厅；分餐段；分宴会类型</td><td>分餐厅；分宴会厅</td></tr><tr><td>14. 宴会业务如何细分？</td><td>婚宴；MICE（会议 / 奖励 / 会展）；Social（社交宴请）</td><td>婚宴；MICE（会议 / 奖励 / 会展）；Social（社交宴请）；政府；其他</td><td>婚宴；MICE（会议 / 奖励 / 会展）；政府</td></tr><tr><td>15. 历史经营数据可回溯区间？</td><td>1–3 年</td><td>1 年以内</td><td>1–3 年</td></tr><tr><td>16. 数据更新频次可达到？</td><td>每月</td><td>每月</td><td>每月</td></tr></tbody></table>
+<h2>三、餐饮投资数据与投资回报分析</h2>
+<table><thead><tr><th>题目</th><th>夏国跃</th><th>何强</th><th>章生</th></tr></thead><tbody><tr><td>17. 是否可提供每个餐厅 / 宴会厅的投资总额（不含租金）？</td><td>只能提供餐饮整体投资总额</td><td>无法提供</td><td>可估算</td></tr><tr><td>18. 投资总额通常包含哪些构成？</td><td>装修 / 硬装；厨房设备；家私 / 软装；智能化 / 信息系统；开办费</td><td>装修 / 硬装；厨房设备；家私 / 软装；智能化 / 信息系统；开办费；其他</td><td>装修 / 硬装；厨房设备；家私 / 软装；开办费</td></tr><tr><td>19. 各餐饮单元的开业 / 最近改造年份能否提供？</td><td>都能提供</td><td>部分能提供</td><td>都能提供</td></tr><tr><td>20. 投资数据希望如何录入？</td><td>按投资构成分项填写</td><td>暂不录入</td><td>按投资构成分项填写</td></tr><tr><td>21. 投资口径需要做哪些区分？</td><td>不含租金；不含土地</td><td>不含租金；不含土地；不含酒店公区分摊；含厨房设备；含装修</td><td>不含租金；不含土地；不含酒店公区分摊</td></tr><tr><td>22. 最关注哪些投资回报指标？</td><td>ROI（投资回报率）；年化回报率；单座投资额；坪效投资比；收入投资比</td><td>投资回收期；ROI（投资回报率）；其他</td><td>ROI（投资回报率）；年化回报率；坪效投资比</td></tr><tr><td>23. 投资回报分析是否需要扣除经营成本 / 费用？</td><td>两者都要</td><td>暂不确定</td><td>两者都要</td></tr><tr><td>24. 投资回报分析的对比维度？</td><td>按餐厅 / 宴会厅分别；按业态（全日餐 / 中餐 / 宴会 / 其他）；与行业平均对比；与同城竞对对比</td><td>按业态（全日餐 / 中餐 / 宴会 / 其他）；与行业平均对比；与同城竞对对比</td><td>按业态（全日餐 / 中餐 / 宴会 / 其他）；与同城竞对对比</td></tr><tr><td>25. 回报分析的基准周期？</td><td>按年</td><td>按年</td><td>按年</td></tr><tr><td>26. 是否需要投资回报的敏感性分析（乐观 / 中性 / 悲观）？</td><td>需要</td><td>可以有</td><td>可以有</td></tr><tr><td>27. 投资回报结论的呈现形式？</td><td>单店报告；集团汇总；在线看板</td><td>单店报告；在线看板；Excel 明细；顾问解读</td><td>单店报告</td></tr></tbody></table>
+<h2>四、行业对标与竞争对手</h2>
+<table><thead><tr><th>题目</th><th>夏国跃</th><th>何强</th><th>章生</th></tr></thead><tbody><tr><td>28. 希望与哪些范围对标？</td><td>所在城市平均；所在商圈</td><td>全国平均；所在城市平均；所在商圈；直接竞争对手；集团内部</td><td>所在城市平均；直接竞争对手</td></tr><tr><td>29. 最关注的对比指标？</td><td>平均消费；客源人数；消费坪效；上座率；收入结构；餐饮与客房收入占比；宴会构成</td><td>平均消费；客源人数；消费坪效；上座率；收入结构；餐饮与客房收入占比；宴会构成</td><td>平均消费；客源人数；消费坪效；上座率；收入结构；宴会构成</td></tr><tr><td>30. 是否需要餐饮收入与客房收入占比分析（整体酒店）？</td><td>需要</td><td>需要</td><td>可选</td></tr><tr><td>31. 宴会厅是否需要独立分析？</td><td>需要独立分析</td><td>需要独立分析</td><td>需要独立分析</td></tr><tr><td>32. 平均消费希望按什么维度对比？</td><td>分餐厅；分宴会厅；分餐段；分零点 / 套餐</td><td>分餐厅；分餐段</td><td>分餐厅；分餐段</td></tr><tr><td>33. 希望获取哪些酒店竞对数据？</td><td>全日餐厅；中餐厅；特色餐厅；宴会厅；其他部门（大堂吧 / 酒吧 / 送餐）</td><td>全日餐厅；中餐厅；特色餐厅；宴会厅；其他部门（大堂吧 / 酒吧 / 送餐）</td><td>全日餐厅；中餐厅；特色餐厅；宴会厅</td></tr><tr><td>34. 竞对营业额希望细分到？</td><td>分餐段（早 / 中 / 晚 / 夜）；分零点 / 套餐；分工作日 / 周末；分宴会类型（婚宴 / MICE / 其他）</td><td>分餐段（早 / 中 / 晚 / 夜）；分零点 / 套餐；分工作日 / 周末；分宴会类型（婚宴 / MICE / 其他）</td><td>分餐段（早 / 中 / 晚 / 夜）；分宴会类型（婚宴 / MICE / 其他）</td></tr><tr><td>35. 竞对分析需要哪些指标？</td><td>营业额 / 收入；平均消费；客源人数；消费坪效；上座率</td><td>营业额 / 收入；平均消费；客源人数；消费坪效；上座率；实时趋势</td><td>营业额 / 收入；平均消费；客源人数；消费坪效；上座率；实时趋势</td></tr><tr><td>36. 竞争对手范围如何确定？</td><td>按同档次同业态</td><td>按地理位置同商圈</td><td>酒店自行指定</td></tr><tr><td>37. 是否愿意提供自身数据用于与竞对公平对标？</td><td>愿意，但需匿名</td><td>愿意，但需匿名</td><td>需先了解规则</td></tr></tbody></table>
+<h2>五、社会餐饮数据</h2>
+<table><thead><tr><th>题目</th><th>夏国跃</th><th>何强</th><th>章生</th></tr></thead><tbody><tr><td>38. 关注哪些社会餐饮类型？</td><td>精致餐饮；大众餐饮（含连锁）；独立餐厅；婚礼堂；自助餐</td><td>精致餐饮；大众餐饮（含连锁）；独立餐厅；婚礼堂；自助餐</td><td>精致餐饮；婚礼堂；自助餐</td></tr><tr><td>39. 社会餐饮数据应涵盖哪些指标？</td><td>营业额；平均消费；接待人数；翻台率</td><td>营业额；平均消费；接待人数；翻台率；门店数；趋势</td><td>营业额；平均消费；接待人数；翻台率；趋势</td></tr><tr><td>40. 社会餐饮数据获取方式可接受？</td><td>平台采集；酒店提供；第三方合作</td><td>酒店提供</td><td>平台采集；酒店提供</td></tr><tr><td>41. 社会餐饮对标是否作为付费顾问报告内容？</td><td>纳入订阅</td><td>纳入订阅</td><td>是（顾问报告）</td></tr></tbody></table>
+<h2>六、数据上传、权限与安全</h2>
+<table><thead><tr><th>题目</th><th>夏国跃</th><th>何强</th><th>章生</th></tr></thead><tbody><tr><td>42. 可接受的数据上传方式？</td><td>系统导出文件</td><td>系统导出文件</td><td>系统导出文件；PMS / 餐饮系统直连</td></tr><tr><td>43. 数据是否需要脱敏后上传？</td><td>需要脱敏</td><td>需要脱敏</td><td>需要脱敏</td></tr><tr><td>44. 数据权限与可见范围？</td><td>集团可见</td><td>可参与匿名对标</td><td>集团可见</td></tr><tr><td>45. 是否需要签署数据保密协议？</td><td>需要</td><td>建议</td><td>需要</td></tr></tbody></table>
+<h2>七、报告形式与订阅交付</h2>
+<table><thead><tr><th>题目</th><th>夏国跃</th><th>何强</th><th>章生</th></tr></thead><tbody><tr><td>46. 期望的报告形式？</td><td>在线看板（实时）；PDF 报告</td><td>在线看板（实时）；PDF 报告；Excel 明细；顾问解读会议；微信 / 邮件推送</td><td>在线看板（实时）；PDF 报告；微信 / 邮件推送</td></tr><tr><td>47. 报告频率？</td><td>实时；月度</td><td>实时；月度；年度；事件触发（如竞对异动）</td><td>月度</td></tr><tr><td>48. 订阅年费的付费方式？</td><td>单店年费</td><td>集团打包</td><td>单店年费</td></tr><tr><td>49. 是否需要投资回报的顾问解读？</td><td>需要</td><td>不需要</td><td>可选</td></tr></tbody></table>
+<h2>八、MVP 优先级与核心痛点</h2>
+<table><thead><tr><th>题目</th><th>夏国跃</th><th>何强</th><th>章生</th></tr></thead><tbody><tr><td>50. 请选出第一阶段最重要的 5 项。</td><td>餐饮设施基础数据采集；餐饮经营数据采集（分餐段）；餐饮投资数据录入；投资回报分析（回收期 / ROI / 坪效）；竞对数据对标</td><td>餐饮设施基础数据采集；餐饮经营数据采集（分餐段）；竞对数据对标；社会餐饮对标；宴会独立分析</td><td>餐饮设施基础数据采集；竞对数据对标；数据上传与脱敏；在线看板（实时）；月度 / 季度 / 年度报告</td></tr><tr><td>51. 最希望系统优先解决什么？</td><td>餐饮数据分散、口径不一；不知道自身在全国 / 城市 / 商圈的位置；缺少竞对数据</td><td>不知道自身在全国 / 城市 / 商圈的位置；缺少竞对数据；宴会经营不透明</td><td>餐饮数据分散、口径不一；缺少竞对数据；数据安全顾虑</td></tr></tbody></table>
+<hr/>
+<h2>分歧点与待确认事项</h2>
+<ul><li><strong>投资数据可得性差异较大</strong>：夏国跃只能提供「餐饮整体投资总额」，章生「可估算」，何强「无法提供 / 暂不录入」。平台需支持 <strong>按餐厅分项 / 整体 / 估算 / 暂缺</strong> 四档容错。</li><li><strong>投资录入方式</strong>：夏、章希望「按投资构成分项填写」，何强「暂不录入」。</li><li><strong>年费采购路径</strong>：夏「可接受直接采购」、章「需内部审批」、何「应由集团统一采购」。需同时支持 <strong>单店年费</strong> 与 <strong>集团打包</strong>。</li><li><strong>竞争对手范围确定</strong>：夏「按同档次同业态」、何「按地理位置同商圈」、章「酒店自行指定」。建议提供三种规则并允许酒店自选。</li><li><strong>社会餐饮是否付费</strong>：夏、何主张「纳入订阅」，章主张「是（顾问报告）」。</li><li><strong>报告频率</strong>：夏「实时+月度」、何「实时+月度+年度+事件触发」、章「月度」。</li><li><strong>是否扣除经营成本</strong>：夏、章「两者都要（含净收益口径）」、何「暂不确定」。</li><li><strong>是否参与匿名对标</strong>：夏、章倾向「集团可见」，何「可参与匿名对标」。</li></ul>
+<hr/>
+<h2>开发建议（第一阶段 MVP）</h2>
+<p>综合 Q50「第一阶段最重要 5 项」的提名，建议排期：</p>
+<ol><li><strong>餐饮设施基础数据 + 经营数据采集</strong>（分餐厅 / 分宴会厅 / 分餐段）——3/3 提名「设施基础数据」、2/3 提名「经营数据」。</li><li><strong>竞对数据对标</strong>——3/3 提名，且为 3/3 核心痛点。</li><li><strong>餐饮投资数据录入</strong>（支持分项 / 整体 / 估算 / 暂缺）——2/3 提名。</li><li><strong>投资回报分析</strong>（ROI、年化回报率、坪效投资比、单座投资额、收入投资比，按年，<strong>不含折旧</strong>）——2/3 提名。</li><li><strong>数据脱敏上传 + 权限与匿名对标</strong>——2/3 提及数据安全顾虑 / 上传脱敏。</li><li><strong>在线看板（实时）+ PDF 报告</strong>——3/3 期望在线看板与 PDF。</li><li><strong>宴会独立分析 / 社会餐饮对标</strong>——各 2/3 提名。</li></ol>
+<hr/>
+<h2>需客户拍板事项</h2>
+<ol><li>投资数据口径与容错：接受「整体 / 估算 / 暂缺」数据吗？</li><li>年费与采购：单店年费与集团打包如何定价与签约？</li><li>社会餐饮对标：纳入订阅还是作为顾问报告收费？</li><li>回报口径：默认收入口径，是否全面支持净收益（扣成本/GOP）口径？</li><li>竞对范围规则：同商圈 / 同档次 / 酒店自选，默认哪种？</li><li>数据权限：集团可见与匿名对标如何并存？</li></ol>
+<hr/>
+<p>*本汇总由问卷答卷自动归一化整理，供需求确认与开发排期使用。*</p>
+</body></html>
